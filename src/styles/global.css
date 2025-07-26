@@ -1,0 +1,22 @@
+﻿@import './themes/hacker.css';
+
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-accent-hover);
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
