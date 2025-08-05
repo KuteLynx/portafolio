@@ -1,5 +1,7 @@
 <script>
+    import { onMount } from 'svelte';
     let isOpen = false;
+    let activeSection = 'Inicio';
 
     const links = [
         { name: 'Inicio', href: '#' },
@@ -11,11 +13,34 @@
     const toggleMenu = () => {
         isOpen = !isOpen;
     };
+
+    function updateActiveSection() {
+        const sections = [
+            { name: 'Inicio', id: '' },
+            { name: 'Proyectos', id: 'projects' },
+            { name: 'Sobre mí', id: 'about' },
+            { name: 'Contacto', id: 'contact' }
+        ];
+        let found = 'Inicio';
+        for (const sec of sections) {
+            const el = sec.id ? document.getElementById(sec.id) : document.body;
+            if (el && window.scrollY >= el.offsetTop - 80) {
+                found = sec.name;
+            }
+        }
+        activeSection = found;
+    }
+
+    onMount(() => {
+        window.addEventListener('scroll', updateActiveSection);
+        updateActiveSection();
+        return () => window.removeEventListener('scroll', updateActiveSection);
+    });
 </script>
 
 <nav class="navbar">
     <div class="logo">
-        <p class="prompt">gerardo@portfolio:~$</p>
+        <p class="prompt">gerardo@portfolio:~$<span class="cursor">_</span></p>
     </div>
 
     <!-- Botón Hamburger -->
@@ -26,7 +51,12 @@
     <!-- Menú en escritorio -->
     <ul class="nav-links desktop">
         {#each links as link}
-            <li><a href={link.href}>{link.name}</a></li>
+            <li>
+                <a href={link.href}
+                   class:active={activeSection === link.name}>
+                    {link.name}
+                </a>
+            </li>
         {/each}
     </ul>
 
@@ -47,8 +77,12 @@
         align-items: center;
         padding: 1rem 2rem;
         background-color: var(--color-bg);
-        position: relative;
-        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 100;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
     }
 
     .hamburger {
@@ -82,6 +116,11 @@
 
     .nav-links li a:hover {
         color: var(--color-accent);
+    }
+
+    .nav-links li a.active {
+        color: var(--color-accent);
+        border-bottom: 2px solid var(--color-accent);
     }
 
     /* Estilos móviles */

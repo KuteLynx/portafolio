@@ -1,21 +1,22 @@
 <script>
     import ProjectCard from '../components/ProjectCard.svelte';
-
     let projects = [
         {
-            title: 'Gestor de Tareas',
-            description: 'Aplicación para gestionar tareas diarias, hecha con SvelteKit y Supabase.',
-            tech: ['SvelteKit', 'Supabase', 'Tailwind'],
-            repo: 'https://github.com/tuusuario/todo-app',
-            demo: 'https://tu-todo-app.netlify.app'
+            title: 'Shinsekai Tienda de Figuras Anime Online',
+            description: 'Desarrollé una e-commerce fullstack desde cero utilizando ASP.NET en el backend y Angular en el frontend. ' +
+                'La plataforma incluía autenticación JWT personalizada, integración de pagos con Stripe, y almacenamiento en SQL Server. ' +
+                'Implementé un panel de administración para que el cliente pudiera gestionar productos y contenido del sitio. ' +
+                'Todo el proceso de despliegue y CI/CD fue automatizado con Azure DevOps.\n' +
+                'Aunque el sitio fue dado de baja por decisión del cliente, el código completo puede consultarse en mi repositorio público.',
+            tech: ['Angular', 'Entity Framework', 'Asp.Net', 'SQL', 'Azure DevOps', 'Stripe'],
+            repo: 'https://github.com/mtz-juncogerardo/Shinsekai-Client',
+            apiRepo: 'https://github.com/mtz-juncogerardo/Shinsekai-API',
+            images: [
+                '/images/shinsekai-homepage.png',
+                '/images/shinsekai-login.png',
+                '/images/shinsekai-checkout.png'
+            ]
         },
-        {
-            title: 'Plugin Angular para VPGC',
-            description: 'Componente interno para planificación y control en Angular 16.',
-            tech: ['Angular', 'RxJS', 'NgRx'],
-            repo: '',
-            demo: ''
-        }
     ];
 </script>
 

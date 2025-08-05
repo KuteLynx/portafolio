@@ -1,7 +1,7 @@
 <footer class="footer">
     <p>Hecho con ❤️ por Lord of cats</p>
     <div class="links">
-        <a href="https://github.com/KuteLynx" target="_blank">GitHub</a>
+        <a href="https://github.com/mtz-juncogerardo" target="_blank">GitHub</a>
         <a href="https://linkedin.com/in/gerardo-martínez-junco-174315377" target="_blank">LinkedIn</a>
     </div>
 </footer>
