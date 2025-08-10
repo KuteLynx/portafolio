@@ -1,96 +1,83 @@
 <script>
+    import {t} from 'svelte-i18n';
+
     let name = '';
     let email = '';
     let message = '';
     let isSubmitting = false;
     let success = '';
     let error = '';
-
     let emailDirty = false;
-
-    // Regex simple para validar email
-    const emailIsValid = (email) => {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
+    const emailIsValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const handleSubmit = async (event) => {
         event.preventDefault();
         success = '';
         error = '';
-
         if (!name || !email || !message) {
-            error = 'Todos los campos son obligatorios';
+            error = t('contact.required');
             return;
         }
-
         if (!emailIsValid(email)) {
-            error = 'El correo no tiene un formato válido';
+            error = t('contact.invalid_email');
             return;
         }
-
         isSubmitting = true;
-
         try {
             const res = await fetch('https://sendcontactemail-z2yos4oceq-uc.a.run.app/sendContactEmail', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, message })
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({name, email, message})
             });
-
             if (res.ok) {
-                success = '¡Mensaje enviado correctamente!';
+                success = t('contact.success');
                 name = '';
                 email = '';
                 message = '';
                 emailDirty = false;
             } else {
-                error = 'Error al enviar el mensaje.';
+                error = t('contact.error');
             }
         } catch (err) {
-            error = 'No se pudo conectar con el servidor.';
-            console.log(err);
+            error = t('contact.server_error');
         } finally {
             isSubmitting = false;
         }
     };
 </script>
 
-<section id="contact" class="contact">
-    <h2>Contacto</h2>
-
+<section class="contact" id="contact">
+    <h2>{$t('contact.title')}</h2>
     <form on:submit|preventDefault={handleSubmit}>
         <input
-                type="text"
-                placeholder="Tu nombre"
                 bind:value={name}
+                placeholder={$t('contact.name')}
                 required
+                type="text"
         />
 
         <input
-                type="email"
-                placeholder="Tu correo"
                 bind:value={email}
                 on:input={() => emailDirty = true}
+                placeholder={$t('contact.email')}
                 required
+                type="email"
         />
         {#if emailDirty && !emailIsValid(email)}
-            <p class="error-mail">
-                This is not valid email
-            </p>
+            <p class="error-mail">{$t('contact.invalid_email')}</p>
         {/if}
 
         <textarea
-                rows="5"
-                placeholder="Tu mensaje"
                 bind:value={message}
+                placeholder={$t('contact.message')}
                 required
+                rows="5"
         ></textarea>
 
         <button
-                type="submit"
                 disabled={!name || !email || !message || !emailIsValid(email) || isSubmitting}
+                type="submit"
         >
-            {isSubmitting ? 'Enviando...' : 'Enviar'}
+            {isSubmitting ? $t('contact.sending') : $t('contact.send')}
         </button>
     </form>
 

@@ -1,13 +1,23 @@
 <script>
-    import { onMount } from 'svelte';
-    let isOpen = false;
-    let activeSection = 'Inicio';
+    import {onMount} from 'svelte';
+    import {t} from 'svelte-i18n';
+    import LangSwitch from './LangSwitch.svelte';
 
-    const links = [
-        { name: 'Inicio', href: '#' },
-        { name: 'Proyectos', href: '#projects' },
-        { name: 'Sobre mí', href: '#about' },
-        { name: 'Contacto', href: '#contact' }
+    let isOpen = false;
+    let activeSection = '';
+
+    const sectionIds = [
+        {key: 'home', id: ''},
+        {key: 'projects', id: 'projects'},
+        {key: 'about', id: 'about'},
+        {key: 'contact', id: 'contact'}
+    ];
+
+    $: links = [
+        {name: $t('navbar.home'), href: '#'},
+        {name: $t('navbar.projects'), href: '#projects'},
+        {name: $t('navbar.about'), href: '#about'},
+        {name: $t('navbar.contact'), href: '#contact'}
     ];
 
     const toggleMenu = () => {
@@ -15,17 +25,19 @@
     };
 
     function updateActiveSection() {
-        const sections = [
-            { name: 'Inicio', id: '' },
-            { name: 'Proyectos', id: 'projects' },
-            { name: 'Sobre mí', id: 'about' },
-            { name: 'Contacto', id: 'contact' }
-        ];
-        let found = 'Inicio';
-        for (const sec of sections) {
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.offsetHeight : 0;
+        let found = $t('navbar.home');
+        for (const sec of sectionIds) {
             const el = sec.id ? document.getElementById(sec.id) : document.body;
-            if (el && window.scrollY >= el.offsetTop - 80) {
-                found = sec.name;
+            if (!el) continue;
+            // Si es la última sección, la activamos si el scroll está cerca del final
+            if (sec.key === 'contact') {
+                if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 10) {
+                    found = $t('navbar.contact');
+                }
+            } else if (window.scrollY >= el.offsetTop - navbarHeight) {
+                found = $t(`navbar.${sec.key}`);
             }
         }
         activeSection = found;
@@ -42,6 +54,7 @@
     <div class="logo">
         <p class="prompt">gerardo@portfolio:~$<span class="cursor">_</span></p>
     </div>
+    <LangSwitch/>
 
     <!-- Botón Hamburger -->
     <button class="hamburger" on:click={toggleMenu}>
@@ -82,7 +95,7 @@
         left: 0;
         width: 100vw;
         z-index: 100;
-        box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
     }
 
     .hamburger {

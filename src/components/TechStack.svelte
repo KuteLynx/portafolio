@@ -1,4 +1,6 @@
 <script>
+    import {t} from 'svelte-i18n';
+
     const skills = [
         'JavaScript',
         'TypeScript',
@@ -15,7 +17,7 @@
 </script>
 
 <section class="stack">
-    <h2>Habilidades Técnicas</h2>
+    <h2>{$t('techstack.title')}</h2>
     <div class="grid">
         {#each skills as skill}
             <span class="chip">{skill}</span>
@@ -43,7 +45,7 @@
     }
 
     .chip {
-        background: var(--color-subtle)
+        background: var(--color-subtle);
         border: 1px solid var(--color-accent);
         border-radius: 20px;
         padding: 0.5rem 1rem;

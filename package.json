@@ -16,5 +16,8 @@
     "gh-pages": "^6.3.0",
     "svelte": "^5.35.5",
     "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "svelte-i18n": "^4.0.1"
   }
 }

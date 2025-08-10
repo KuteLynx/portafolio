@@ -1,0 +1,57 @@
+﻿{
+  "techstack": {
+    "title": "Technical Skills"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "switch_language_es": "Español",
+    "switch_language_en": "English"
+  },
+  "home": {
+    "hello": "Hi! I'm",
+    "name": "Gerardo Martínez",
+    "desc": "I write code with the same passion I answer my cats' meows. 🐱",
+    "cv": "Download CV"
+  },
+  "about": {
+    "title": "About me",
+    "p1": "I'm a fullstack developer with solid experience building robust and scalable web applications. Over the years, I've specialized in <span>ASP.NET</span> and <span>Angular</span>, developing complete business solutions from backend to rich, high-performance interfaces.",
+    "p2": "My days start with coffee and an open terminal, usually accompanied by the soft steps (and constant meows) of my feline companions: <span>Gustavo, Gretta, Gina and Gunter</span>. They taught me what real multitasking is: coding while dodging paws on the keyboard.",
+    "p3": "I firmly believe a good developer not only solves problems, but also anticipates future challenges, writes maintainable code, and collaborates actively with the team.",
+    "p4": "Lately I've also explored <span>Svelte</span>, and I love its minimalist philosophy and the speed it brings to development."
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "shinsekai": {
+      "title": "Shinsekai Anime Figures Online Store",
+      "desc": "I developed a fullstack e-commerce from scratch using ASP.NET for the backend and Angular for the frontend. The platform included custom JWT authentication, Stripe payment integration, and SQL Server storage. I implemented an admin panel for the client to manage products and site content. The entire deployment and CI/CD process was automated with Azure DevOps. Although the site was taken down by client decision, the full code is available in my public repository."
+    }
+  },
+  "footer": {
+    "made": "Made with ❤️ by Lord of cats",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Your name",
+    "email": "Your email",
+    "message": "Your message",
+    "send": "Send",
+    "sending": "Sending...",
+    "required": "All fields are required",
+    "invalid_email": "Email format is not valid",
+    "success": "Message sent successfully!",
+    "error": "Error sending message.",
+    "server_error": "Could not connect to server."
+  },
+  "project_card": {
+    "code": "Code",
+    "api": "API",
+    "demo": "Demo",
+    "close": "Close"
+  }
+}

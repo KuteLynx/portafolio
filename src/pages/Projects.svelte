@@ -1,30 +1,22 @@
 <script>
     import ProjectCard from '../components/ProjectCard.svelte';
-    let projects = [
-        {
-            title: 'Shinsekai Tienda de Figuras Anime Online',
-            description: 'Desarrollé una e-commerce fullstack desde cero utilizando ASP.NET en el backend y Angular en el frontend. ' +
-                'La plataforma incluía autenticación JWT personalizada, integración de pagos con Stripe, y almacenamiento en SQL Server. ' +
-                'Implementé un panel de administración para que el cliente pudiera gestionar productos y contenido del sitio. ' +
-                'Todo el proceso de despliegue y CI/CD fue automatizado con Azure DevOps.\n' +
-                'Aunque el sitio fue dado de baja por decisión del cliente, el código completo puede consultarse en mi repositorio público.',
-            tech: ['Angular', 'Entity Framework', 'Asp.Net', 'SQL', 'Azure DevOps', 'Stripe'],
-            repo: 'https://github.com/mtz-juncogerardo/Shinsekai-Client',
-            apiRepo: 'https://github.com/mtz-juncogerardo/Shinsekai-API',
-            images: [
-                '/images/shinsekai-homepage.png',
-                '/images/shinsekai-login.png',
-                '/images/shinsekai-checkout.png'
-            ]
-        },
-    ];
+    import {t} from 'svelte-i18n';
 </script>
 
 <section id="projects">
-    <h2>Proyectos Destacados</h2>
-    {#each projects as project}
-        <ProjectCard {...project} />
-    {/each}
+    <h2>{$t('projects.title')}</h2>
+    <ProjectCard
+            apiRepo="https://github.com/mtz-juncogerardo/Shinsekai-API"
+            description={$t('projects.shinsekai.desc')}
+            images={[
+            '/images/shinsekai-homepage.png',
+            '/images/shinsekai-login.png',
+            '/images/shinsekai-checkout.png'
+        ]}
+            repo="https://github.com/mtz-juncogerardo/Shinsekai-Client"
+            tech={["Angular", "Entity Framework", "Asp.Net", "SQL", "Azure DevOps", "Stripe"]}
+            title={$t('projects.shinsekai.title')}
+    />
 </section>
 
 <style>

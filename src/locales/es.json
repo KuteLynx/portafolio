@@ -1,0 +1,57 @@
+﻿{
+  "techstack": {
+    "title": "Habilidades técnicas"
+  },
+  "navbar": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "switch_language_es": "Español",
+    "switch_language_en": "English"
+  },
+  "home": {
+    "hello": "¡Hola! Soy",
+    "name": "Gerardo Martínez",
+    "desc": "Escribo código con la misma pasión con la que respondo a los maullidos de mis gatos. 🐱",
+    "cv": "Descargar CV"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "p1": "Soy un desarrollador fullstack con sólida experiencia construyendo aplicaciones web robustas y escalables. A lo largo de los años, me he especializado en <span>ASP.NET</span> y <span>Angular</span>, tecnologías con las que he desarrollado soluciones empresariales completas, desde el backend hasta interfaces ricas en interacción y rendimiento.",
+    "p2": "Mis días empiezan con café y terminal abierta, y suelen estar acompañados por los suaves pasos (y maullidos constantes) de mis compañeros felinos: <span>Gustavo, Gretta, Gina y Gunter</span>. Ellos me enseñaron lo que es la multitarea real: programar mientras esquivas patas sobre el teclado.",
+    "p3": "Creo firmemente que un buen desarrollador no solo resuelve problemas, también anticipa futuros desafíos, escribe código mantenible y colabora activamente con el equipo.",
+    "p4": "Últimamente también he explorado <span>Svelte</span>, y me encanta su filosofía minimalista y la velocidad con la que permite desarrollar."
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "shinsekai": {
+      "title": "Shinsekai Tienda de Figuras Anime Online",
+      "desc": "Desarrollé una e-commerce fullstack desde cero utilizando ASP.NET en el backend y Angular en el frontend. La plataforma incluía autenticación JWT personalizada, integración de pagos con Stripe, y almacenamiento en SQL Server. Implementé un panel de administración para que el cliente pudiera gestionar productos y contenido del sitio. Todo el proceso de despliegue y CI/CD fue automatizado con Azure DevOps. Aunque el sitio fue dado de baja por decisión del cliente, el código completo puede consultarse en mi repositorio público."
+    }
+  },
+  "footer": {
+    "made": "Hecho con ❤️ por Lord of cats",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "contact": {
+    "title": "Contacto",
+    "name": "Tu nombre",
+    "email": "Tu correo",
+    "message": "Tu mensaje",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "required": "Todos los campos son obligatorios",
+    "invalid_email": "El correo no tiene un formato válido",
+    "success": "¡Mensaje enviado correctamente!",
+    "error": "Error al enviar el mensaje.",
+    "server_error": "No se pudo conectar con el servidor."
+  },
+  "project_card": {
+    "code": "Código",
+    "api": "API",
+    "demo": "Demo",
+    "close": "Cerrar"
+  }
+}

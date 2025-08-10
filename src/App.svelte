@@ -6,14 +6,25 @@
   import About from './pages/About.svelte';
   import TechStack from './components/TechStack.svelte';
   import ContactForm from './components/ContactForm.svelte';
+  import {addMessages, getLocaleFromNavigator, init} from 'svelte-i18n';
+  import en from './locales/en.json';
+  import es from './locales/es.json';
+
+  addMessages('en', en);
+    addMessages('es', es);
+
+    init({
+        fallbackLocale: 'en',
+        initialLocale: getLocaleFromNavigator(),
+    });
 </script>
 
-<Navbar />
+<Navbar/>
 <main>
-  <Home />
-  <Projects />
-  <About />
-  <TechStack />
-  <ContactForm />
+    <Home/>
+    <Projects/>
+    <About/>
+    <TechStack/>
+    <ContactForm/>
 </main>
-<Footer />
+<Footer/>

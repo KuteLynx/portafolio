@@ -1,8 +1,12 @@
+<script>
+    import {t} from 'svelte-i18n';
+</script>
+
 <footer class="footer">
-    <p>Hecho con ❤️ por Lord of cats</p>
+    <p>{$t('footer.made')}</p>
     <div class="links">
-        <a href="https://github.com/mtz-juncogerardo" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/gerardo-martínez-junco-174315377" target="_blank">LinkedIn</a>
+        <a href="https://github.com/mtz-juncogerardo" target="_blank">{$t('footer.github')}</a>
+        <a href="https://linkedin.com/in/gerardo-martínez-junco-174315377" target="_blank">{$t('footer.linkedin')}</a>
     </div>
 </footer>
 

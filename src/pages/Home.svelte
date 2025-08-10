@@ -1,9 +1,13 @@
+<script>
+    import {t} from 'svelte-i18n';
+</script>
+
 <section class="home">
     <div class="intro">
-        <h2>¡Hola! Soy</h2>
-        <h1>Gerardo Martínez<span class="cursor">|</span></h1>
-        <p>Escribo código con la misma pasión con la que respondo a los maullidos de mis gatos. 🐱</p>
-        <a href="/GerardoMartinez_CV.pdf" target="_blank" class="cv-button">Descargar CV</a>
+        <h2>{$t('home.hello')}</h2>
+        <h1>{$t('home.name')}<span class="cursor">|</span></h1>
+        <p>{$t('home.desc')}</p>
+        <a class="cv-button" href="/GerardoMartinez_CV.pdf" target="_blank">{$t('home.cv')}</a>
     </div>
 </section>
 
