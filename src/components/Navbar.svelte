@@ -4,7 +4,7 @@
     import LangSwitch from './LangSwitch.svelte';
 
     let isOpen = false;
-    let activeSection = '';
+    let activeSection = 'home';
 
     const sectionIds = [
         {key: 'home', id: ''},
@@ -14,10 +14,10 @@
     ];
 
     $: links = [
-        {name: $t('navbar.home'), href: '#'},
-        {name: $t('navbar.projects'), href: '#projects'},
-        {name: $t('navbar.about'), href: '#about'},
-        {name: $t('navbar.contact'), href: '#contact'}
+        {name: $t('navbar.home'), href: '#', key: 'home'},
+        {name: $t('navbar.projects'), href: '#projects', key: 'projects'},
+        {name: $t('navbar.about'), href: '#about', key: 'about'},
+        {name: $t('navbar.contact'), href: '#contact', key: 'contact'}
     ];
 
     const toggleMenu = () => {
@@ -27,17 +27,16 @@
     function updateActiveSection() {
         const navbar = document.querySelector('.navbar');
         const navbarHeight = navbar ? navbar.offsetHeight : 0;
-        let found = $t('navbar.home');
+        let found = 'home';
         for (const sec of sectionIds) {
             const el = sec.id ? document.getElementById(sec.id) : document.body;
             if (!el) continue;
-            // Si es la última sección, la activamos si el scroll está cerca del final
             if (sec.key === 'contact') {
                 if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 10) {
-                    found = $t('navbar.contact');
+                    found = 'contact';
                 }
             } else if (window.scrollY >= el.offsetTop - navbarHeight) {
-                found = $t(`navbar.${sec.key}`);
+                found = sec.key;
             }
         }
         activeSection = found;
@@ -54,7 +53,9 @@
     <div class="logo">
         <p class="prompt">gerardo@portfolio:~$<span class="cursor">_</span></p>
     </div>
-    <LangSwitch/>
+    <div class="lang-desktop">
+        <LangSwitch/>
+    </div>
 
     <!-- Botón Hamburger -->
     <button class="hamburger" on:click={toggleMenu}>
@@ -66,7 +67,7 @@
         {#each links as link}
             <li>
                 <a href={link.href}
-                   class:active={activeSection === link.name}>
+                   class:active={activeSection === link.key}>
                     {link.name}
                 </a>
             </li>
@@ -77,8 +78,9 @@
     {#if isOpen}
         <ul class="nav-links mobile">
             {#each links as link}
-                <li><a href={link.href} on:click={() => isOpen = false}>{link.name}</a></li>
+                <li><a href={link.href} on:click={() => isOpen = false} class:active={activeSection === link.key}>{link.name}</a></li>
             {/each}
+            <li class="lang-mobile"><LangSwitch/></li>
         </ul>
     {/if}
 </nav>
@@ -151,22 +153,27 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: var(--color-subtle);
+            background: var(--color-bg);
             width: 100%;
             padding: 1rem 2rem;
             border-top: 1px solid #333;
             animation: slideDown 0.3s ease-out;
         }
+        .lang-desktop {
+            display: none;
+        }
+        .lang-mobile {
+            display: block;
+            margin-top: 1rem;
+        }
+    }
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10%);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+    @media (min-width: 769px) {
+        .lang-mobile {
+            display: none;
+        }
+        .lang-desktop {
+            display: block;
         }
     }
 </style>

@@ -46,7 +46,7 @@
 {#if modalImg}
     <div class="modal" on:click|self={closeModal}>
         <div class="modal-content">
-            <button class="close" on:click={closeModal} aria-label={t('project_card.close')}>&times;</button>
+            <button class="close" on:click={closeModal}>&times;</button>
             <img src={modalImg} alt="Imagen ampliada"/>
         </div>
     </div>
