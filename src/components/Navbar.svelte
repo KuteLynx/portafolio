@@ -388,6 +388,10 @@
             display: none;
         }
 
+        .theme-desktop {
+            display: none;
+        }
+
         .nav-links.mobile {
             position: fixed;
             top: 0;

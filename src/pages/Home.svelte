@@ -197,7 +197,6 @@
         }
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
         .hero-content {
             grid-template-columns: 1fr;
@@ -222,6 +221,43 @@
         .cv-button {
             padding: var(--spacing-sm) var(--spacing-lg);
             font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .hero-content {
+            gap: var(--spacing-lg);
+        }
+
+        .greeting {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .name {
+            font-size: clamp(1.9rem, 10vw, 2.4rem);
+            line-height: 1.1;
+        }
+
+        .description {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-lg);
+            max-width: 100%;
+        }
+
+        .cv-button {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .name {
+            font-size: clamp(1.8rem, 10.5vw, 2.2rem);
+        }
+
+        .description {
+            font-size: 0.95rem;
         }
     }
 </style>

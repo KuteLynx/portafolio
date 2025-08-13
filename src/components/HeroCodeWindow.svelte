@@ -18,7 +18,7 @@
   <span class="property">{$t('home.code_window.name_prop')}</span>: <span class="string">'{$t('home.name')}',</span>
   <span class="property">{$t('home.code_window.role_prop')}</span>: <span class="string">'{$t('home.code_window.role')}',</span>
   <span class="property">{$t('home.code_window.skills_prop')}</span>: [<span class="string">'Angular',</span> <span
-                  class="string">'.NET Core',</span> <span class="string">'C#',</span> <span class="string">'TS'</span>]<span class="punctuation">,</span>
+                  class="string">'ASP.NET',</span> <span class="string">'Svelte'</span>]<span class="punctuation">,</span>
   <span class="property">{$t('home.code_window.passion_prop')}</span>: <span
                   class="string">'{$t('home.code_window.passion')}'</span>
 &#125;;
@@ -152,10 +152,33 @@
   @media (max-width: 768px) {
     .hero-visual {
       order: -1;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
     }
 
     .code-window {
       max-width: 100%;
+      width: 100%;
+    }
+
+    /* Mostrar scrollbar sólo en móviles */
+    .code-block {
+      scrollbar-width: thin; /* Firefox */
+      -ms-overflow-style: auto; /* IE/Edge */
+    }
+
+    .code-block::-webkit-scrollbar {
+      display: block; /* WebKit */
+      height: 8px;
+    }
+
+    .code-block::-webkit-scrollbar-track {
+      background: var(--color-bg-tertiary);
+    }
+
+    .code-block::-webkit-scrollbar-thumb {
+      background: var(--color-accent);
+      border-radius: 4px;
     }
   }
 </style>
