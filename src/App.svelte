@@ -6,7 +6,7 @@
     import About from './pages/About.svelte';
     import TechStack from './components/TechStack.svelte';
     import ContactForm from './components/ContactForm.svelte';
-    import { addMessages, init } from 'svelte-i18n';
+    import {addMessages, init} from 'svelte-i18n';
     import en from './locales/en.json';
     import es from './locales/es.json';
 

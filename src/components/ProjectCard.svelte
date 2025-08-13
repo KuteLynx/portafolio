@@ -9,6 +9,7 @@
     import {t} from 'svelte-i18n';
 
     let modalImg = null;
+    let isHovered = false;
 
     function openModal(img) {
         modalImg = img;
@@ -21,183 +22,372 @@
     }
 </script>
 
-<div class="card">
-    <h3>{title}</h3>
+<div class="card project-card card-hover"
+     on:mouseenter={() => isHovered = true}
+     on:mouseleave={() => isHovered = false}>
+    <div class="card-header">
+        <h3 class="project-title gradient-text">{title}</h3>
+    </div>
+
     <p class="description">{description}</p>
+
     {#if images && images.length}
-        <div class="images">
-            {#each images as img}
-                <img src={img} alt={title + ' screenshot'} on:click={() => openModal(img)}/>
-            {/each}
+        <div class="images-container">
+            <div class="images-grid">
+                {#each images as img, index}
+                    <div class="image-wrapper" style="animation-delay: {index * 0.1}s">
+                        <img
+                                src={img}
+                                alt={title + ' screenshot'}
+                                on:click={() => openModal(img)}
+                                class="project-image"
+                        />
+                        <div class="image-overlay">
+                            <span class="view-text">{$t('project_card.click_to_view')}</span>
+                        </div>
+                    </div>
+                {/each}
+            </div>
         </div>
     {/if}
-    <div class="tech">
-        {#each tech as t}
-            <span class="chip">{t}</span>
-        {/each}
+
+    <div class="tech-stack">
+        <h4 class="tech-title">{$t('project_card.technologies')}</h4>
+        <div class="tech-grid">
+            {#each tech as techItem, index}
+                <span class="tech-chip" style="animation-delay: {index * 0.05}s">
+                    {techItem}
+                </span>
+            {/each}
+        </div>
     </div>
-    <div class="links">
-        {#if repo}<a href={repo} target="_blank">{$t('project_card.code')}</a>{/if}
-        {#if apiRepo} <a href={apiRepo} target="_blank">{$t('project_card.api')}</a>{/if}
-        {#if demo}<a href={demo} target="_blank">{$t('project_card.demo')}</a>{/if}
+
+    <div class="project-links">
+        {#if repo}
+            <a href={repo} target="_blank" class="project-link btn-animate">
+                <i class="fas fa-folder"></i>
+                <span class="link-text">{$t('project_card.code')}</span>
+            </a>
+        {/if}
+        {#if apiRepo}
+            <a href={apiRepo} target="_blank" class="project-link btn-animate">
+                <i class="fas fa-cogs"></i>
+                <span class="link-text">{$t('project_card.api')}</span>
+            </a>
+        {/if}
+        {#if demo}
+            <a href={demo} target="_blank" class="project-link btn-animate primary">
+                <i class="fas fa-rocket"></i>
+                <span class="link-text">{$t('project_card.demo')}</span>
+            </a>
+        {/if}
     </div>
 </div>
 
 {#if modalImg}
     <div class="modal" on:click|self={closeModal}>
         <div class="modal-content">
-            <button class="close" on:click={closeModal}>&times;</button>
-            <img src={modalImg} alt="Imagen ampliada"/>
+            <button class="close-btn" on:click={closeModal} aria-label="{$t('project_card.close')}">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src={modalImg} alt="{$t('project_card.screenshot')}" class="modal-image"/>
         </div>
     </div>
 {/if}
 
 <style>
-    .card {
-        margin: 0 auto 2rem auto;
-        padding: 2rem 1.5rem;
-        background: #181818;
-        border-radius: 12px;
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
-    }
-
-    .description {
-        margin: 0 auto 1.2rem auto;
-        font-size: 1rem;
-        line-height: 1.6;
-        color: #eaeaea;
-        text-align: left;
-    }
-
-    .images {
-        display: flex;
-        gap: 1.2rem;
-        justify-content: center;
-        margin-bottom: 1.2rem;
-    }
-
-    @media (max-width: 875px) {
-        .images {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .images img {
-            max-width: 90vw;
-            height: auto;
-        }
-    }
-
-    .images img {
-        max-width: 260px;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 10px;
-        border: 1px solid #333;
-        transition: transform 0.3s cubic-bezier(.4, 0, .2, 1), box-shadow 0.3s;
+    .project-card {
+        background: var(--gradient-card);
+        border: 1px solid var(--color-border);
+        border-radius: 16px;
+        padding: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+        position: relative;
+        overflow: hidden;
+        transition: all var(--transition-normal);
         cursor: pointer;
     }
 
-    .images img:hover {
-        transform: scale(1.15);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        z-index: 2;
+    .project-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-primary);
+        transform: scaleX(0);
+        transition: transform var(--transition-normal);
     }
 
-    .tech {
+    .project-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .description {
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+        margin-bottom: var(--spacing-lg);
+        font-size: 1rem;
+    }
+
+    .images-container {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .images-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-md);
+    }
+
+    .image-wrapper {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--color-bg-secondary);
+        border: 1px solid var(--color-border);
+        transition: all var(--transition-normal);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideUp 0.6s ease-out forwards;
+    }
+
+    .image-wrapper:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .project-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        transition: all var(--transition-normal);
+        cursor: pointer;
+    }
+
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity var(--transition-normal);
+    }
+
+    .image-wrapper:hover .image-overlay {
+        opacity: 1;
+    }
+
+    .view-text {
+        color: white;
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+
+    .tech-stack {
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .tech-title {
+        font-size: 1rem;
+        color: var(--color-text);
+        margin-bottom: var(--spacing-sm);
+        font-weight: 600;
+    }
+
+    .tech-grid {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
-        justify-content: center;
-        margin-bottom: 1.2rem;
+        gap: var(--spacing-sm);
     }
 
-    .chip {
-        background: var(--color-accent);
-        color: #181818;
-        padding: 0.35em 1em;
+    .tech-chip {
+        background: var(--gradient-secondary);
+        color: var(--color-bg);
+        padding: var(--spacing-xs) var(--spacing-sm);
         border-radius: 20px;
-        font-size: 0.95em;
+        font-size: 0.8rem;
         font-weight: 500;
-        box-shadow: 0 2px 8px rgba(0, 255, 136, 0.10);
-        letter-spacing: 0.02em;
-        border: 1px solid var(--color-border);
-        user-select: none;
-        transition: background 0.2s;
+        border: none;
+        transition: all var(--transition-normal);
+        opacity: 0;
+        transform: scale(0.8);
+        animation: scaleIn 0.4s ease-out forwards;
     }
 
-    .chip:hover {
-        background: var(--color-accent-hover);
+    .tech-chip:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-md);
     }
 
-    .links {
+    .project-links {
         display: flex;
-        gap: 1rem;
-        justify-content: center;
+        gap: var(--spacing-md);
+        flex-wrap: wrap;
     }
 
-    .links a {
-        color: var(--color-accent, #0077ff);
-        text-decoration: none;
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-sm) var(--spacing-md);
+        background: var(--color-bg-secondary);
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        font-size: 0.9rem;
         font-weight: 500;
-        transition: color 0.2s;
+        text-decoration: none;
+        transition: all var(--transition-normal);
+        position: relative;
+        overflow: hidden;
     }
 
-    .links a:hover {
-        color: #00c6ff;
-        text-decoration: underline;
+    .project-link:hover {
+        background: var(--color-accent);
+        color: var(--color-bg);
+        border-color: var(--color-accent);
+        transform: translateY(-2px);
     }
 
-    /* Modal styles */
+    .project-link.primary {
+        background: var(--gradient-primary);
+        color: var(--color-bg);
+        border-color: transparent;
+    }
+
+    .project-link.primary:hover {
+        background: var(--color-accent-hover);
+        transform: translateY(-2px);
+    }
+
+    .project-link i {
+        font-size: 1rem;
+    }
+
+    /* Modal Styles */
     .modal {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 1000;
+        animation: fadeIn 0.3s ease-out;
     }
 
     .modal-content {
         position: relative;
-        background: transparent;
-        padding: 0;
-        border-radius: 12px;
-        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
         max-width: 90vw;
         max-height: 90vh;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow-xl);
+        border: 2px solid var(--color-accent);
+    }
+
+    .modal-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        background: var(--color-bg);
+    }
+
+    .close-btn {
+        position: absolute;
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+        background: rgba(0, 0, 0, 0.8);
+        border: none;
+        color: var(--color-accent);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: all var(--transition-normal);
+        z-index: 10;
     }
 
-    .modal-content img {
-        max-width: 80vw;
-        max-height: 80vh;
-        border-radius: 12px;
-        box-shadow: 0 2px 16px rgba(0, 255, 136, 0.15);
-        border: 2px solid var(--color-accent);
-        background: #181818;
+    .close-btn:hover {
+        background: var(--color-accent);
+        color: var(--color-bg);
+        transform: scale(1.1);
     }
 
-    .close {
-        position: absolute;
-        top: 12px;
-        right: 18px;
-        background: none;
-        border: none;
-        color: var(--color-accent);
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 2;
-        transition: color 0.2s;
+    /* Animations */
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
     }
 
-    .close:hover {
-        color: var(--color-accent-hover);
+    @keyframes slideUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes scaleIn {
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .project-card {
+            padding: var(--spacing-lg);
+        }
+
+        .card-header {
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .images-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .project-links {
+            flex-direction: column;
+        }
+
+        .project-link {
+            justify-content: center;
+        }
     }
 </style>

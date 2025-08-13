@@ -1,6 +1,14 @@
 ﻿{
   "techstack": {
-    "title": "Habilidades técnicas"
+    "title": "Habilidades técnicas",
+    "subtitle": "Tecnologías y herramientas con las que convierto ideas complejas en experiencias digitales memorables",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Base de Datos",
+      "tools": "Herramientas"
+    },
+    "experience": "Más de 10 años creando soluciones full-stack de alto rendimiento"
   },
   "navbar": {
     "home": "Inicio",
@@ -13,30 +21,63 @@
   "home": {
     "hello": "¡Hola! Soy",
     "name": "Gerardo Martínez",
-    "desc": "Escribo código con la misma pasión con la que respondo a los maullidos de mis gatos. 🐱",
-    "cv": "Descargar CV"
+    "desc": "Arquitecto de código, artesano del software bien hecho y esclavo voluntario de cuatro gatos que creen dirigir mi vida",
+    "cv": "Descargar CV",
+    "code_window": {
+      "title": "portfolio.js",
+      "const": "const",
+      "developer": "developer",
+      "name_prop": "name",
+      "role_prop": "role",
+      "role": "Desarrollador Fullstack Senior",
+      "skills_prop": "skills",
+      "passion_prop": "passion",
+      "passion": "Crear experiencias digitales únicas",
+      "function": "function",
+      "get_in_touch": "getInTouch",
+      "return": "return",
+      "message": "Transformemos tu idea en realidad."
+    }
   },
   "about": {
     "title": "Sobre mí",
-    "p1": "Soy un desarrollador fullstack con sólida experiencia construyendo aplicaciones web robustas y escalables. A lo largo de los años, me he especializado en <span>ASP.NET</span> y <span>Angular</span>, tecnologías con las que he desarrollado soluciones empresariales completas, desde el backend hasta interfaces ricas en interacción y rendimiento.",
-    "p2": "Mis días empiezan con café y terminal abierta, y suelen estar acompañados por los suaves pasos (y maullidos constantes) de mis compañeros felinos: <span>Gustavo, Gretta, Gina y Gunter</span>. Ellos me enseñaron lo que es la multitarea real: programar mientras esquivas patas sobre el teclado.",
-    "p3": "Creo firmemente que un buen desarrollador no solo resuelve problemas, también anticipa futuros desafíos, escribe código mantenible y colabora activamente con el equipo.",
-    "p4": "Últimamente también he explorado <span>Svelte</span>, y me encanta su filosofía minimalista y la velocidad con la que permite desarrollar."
+    "subtitle": "Conoce quién está detrás del código",
+    "p1": "Soy un desarrollador fullstack con más de una década de experiencia creando aplicaciones web potentes, seguras y escalables. Me especializo en ASP.NET y Angular, construyendo soluciones empresariales de principio a fin, desde arquitecturas backend sólidas hasta interfaces fluidas y con gran experiencia de usuario.",
+    "p2": "Mi día comienza con café, teclado y la terminal lista, acompañado de la supervisión no solicitada de mis compañeros felinos: Gustavo, Gretta, Gina y Gunter. Gracias a ellos, domino el arte de escribir código mientras esquivo colas y patas sobre el escritorio.",
+    "p3": "Creo que un gran desarrollador no solo resuelve problemas, sino que prevé obstáculos futuros, escribe código mantenible, comprende el negocio detrás de la solución y fomenta la colaboración en cada equipo en el que participa.",
+    "p4": "Últimamente me he sumergido en Svelte, fascinado por su minimalismo y la rapidez con la que convierte ideas en productos listos para producción.",
+    "stats": {
+      "years": "Años de Experiencia",
+      "technologies": "Tecnologías Dominadas",
+      "cats": "Felinos Supervisores"
+    },
+    "interests": {
+      "title": "Cuando no estoy programando...",
+      "cats": "Administrador de Recursos Felinos",
+      "coffee": "Sommelier de Café de Oficina",
+      "reading": "Explorador de Tendencias Tecnológicas",
+      "gaming": "Jugador Competitivo Casual"
+    }
   },
   "projects": {
     "title": "Proyectos Destacados",
+    "subtitle": "Una muestra del impacto y calidad que aporto en cada desarrollo",
     "shinsekai": {
       "title": "Shinsekai Tienda de Figuras Anime Online",
-      "desc": "Desarrollé una e-commerce fullstack desde cero utilizando ASP.NET en el backend y Angular en el frontend. La plataforma incluía autenticación JWT personalizada, integración de pagos con Stripe, y almacenamiento en SQL Server. Implementé un panel de administración para que el cliente pudiera gestionar productos y contenido del sitio. Todo el proceso de despliegue y CI/CD fue automatizado con Azure DevOps. Aunque el sitio fue dado de baja por decisión del cliente, el código completo puede consultarse en mi repositorio público."
+      "desc": "Diseñé y desarrollé una e-commerce fullstack desde cero con ASP.NET en el backend y Angular en el frontend. La plataforma integraba autenticación JWT personalizada, pagos con Stripe, almacenamiento optimizado en SQL Server y un panel de administración completo para la gestión de inventario y contenido. Automatizé despliegues y CI/CD con Azure DevOps, asegurando rapidez y confiabilidad en cada entrega. Aunque el sitio fue retirado por decisión del cliente, el código permanece disponible en mi repositorio público."
     }
   },
   "footer": {
-    "made": "Hecho con ❤️ por Lord of cats",
+    "made": "Hecho con ❤️ y café por Lord of Cats",
     "github": "GitHub",
-    "linkedin": "LinkedIn"
+    "linkedin": "LinkedIn",
+    "connect": "Conectar",
+    "copyright": "© 2024 Gerardo Martínez. Construido con",
+    "and_lots_of": "y toneladas de pasión por el código"
   },
   "contact": {
     "title": "Contacto",
+    "subtitle": "Hablemos sobre cómo puedo impulsar tu próximo proyecto",
     "name": "Tu nombre",
     "email": "Tu correo",
     "message": "Tu mensaje",
@@ -44,14 +85,37 @@
     "sending": "Enviando...",
     "required": "Todos los campos son obligatorios",
     "invalid_email": "El correo no tiene un formato válido",
-    "success": "¡Mensaje enviado correctamente!",
+    "success": "¡Tu mensaje ha sido enviado con éxito!",
     "error": "Error al enviar el mensaje.",
-    "server_error": "No se pudo conectar con el servidor."
+    "server_error": "No se pudo conectar con el servidor.",
+    "placeholders": {
+      "name": "Tu nombre completo",
+      "email": "tu.correo@ejemplo.com",
+      "message": "Cuéntame tu idea, tu reto o simplemente salúdame"
+    },
+    "info": {
+      "get_in_touch": {
+        "title": "Ponte en Contacto",
+        "description": "¿Listo para crear algo grandioso o intercambiar ideas? Estoy a solo un mensaje de distancia."
+      },
+      "quick_response": {
+        "title": "Respuesta Rápida",
+        "description": "En días laborables suelo responder en menos de 24 horas."
+      },
+      "collaborate": {
+        "title": "Colaboremos",
+        "description": "Desde una consultoría puntual hasta el desarrollo completo, puedo ayudarte a dar forma a tu visión."
+      }
+    }
   },
   "project_card": {
     "code": "Código",
     "api": "API",
     "demo": "Demo",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "status": "Activo",
+    "technologies": "Tecnologías Utilizadas",
+    "click_to_view": "Clic para ver",
+    "screenshot": "Captura del proyecto"
   }
 }

@@ -1,6 +1,6 @@
 ﻿<script>
-    import { locale, t } from 'svelte-i18n';
-    import { writable } from 'svelte/store';
+    import {locale, t} from 'svelte-i18n';
+    import {writable} from 'svelte/store';
 
     const currentLang = writable('es');
 
