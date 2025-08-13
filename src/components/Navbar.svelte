@@ -401,7 +401,7 @@
             background: var(--color-bg);
             border-left: 1px solid var(--color-border);
             flex-direction: column;
-            padding: 80px var(--spacing-xl) var(--spacing-xl);
+            padding: 80px var(--spacing-xl) 10rem;
             gap: var(--spacing-md);
             z-index: 1000;
             animation: slideInRight 0.3s ease-out;

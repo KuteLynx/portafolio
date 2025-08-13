@@ -9,7 +9,6 @@
     import {t} from 'svelte-i18n';
 
     let modalImg = null;
-    let isHovered = false;
 
     function openModal(img) {
         modalImg = img;
@@ -22,9 +21,7 @@
     }
 </script>
 
-<div class="card project-card card-hover"
-     on:mouseenter={() => isHovered = true}
-     on:mouseleave={() => isHovered = false}>
+<div class="card project-card card-hover">
     <div class="card-header">
         <h3 class="project-title gradient-text">{title}</h3>
     </div>
@@ -35,11 +32,10 @@
         <div class="images-container">
             <div class="images-grid">
                 {#each images as img, index}
-                    <div class="image-wrapper" style="animation-delay: {index * 0.1}s">
+                    <div class="image-wrapper" style="animation-delay: {index * 0.1}s" on:click={() => openModal(img)} role="button" tabindex="0" aria-label={`Abrir imagen de ${title}`} on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openModal(img)}>
                         <img
                                 src={img}
                                 alt={title + ' screenshot'}
-                                on:click={() => openModal(img)}
                                 class="project-image"
                         />
                         <div class="image-overlay">
@@ -85,7 +81,7 @@
 </div>
 
 {#if modalImg}
-    <div class="modal" on:click|self={closeModal}>
+    <div class="modal" on:click|self={closeModal} role="dialog" aria-modal="true" tabindex="0" aria-label="Vista previa de imagen" on:keydown={(e) => e.key === 'Escape' && closeModal()}>
         <div class="modal-content">
             <button class="close-btn" on:click={closeModal} aria-label="{$t('project_card.close')}">
                 <i class="fas fa-times"></i>

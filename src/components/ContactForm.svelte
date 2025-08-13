@@ -1,5 +1,11 @@
 <script>
     import {t} from 'svelte-i18n';
+    import { onMount } from 'svelte';
+    import { get } from 'svelte/store';
+
+    const translateHelper = (key) => {
+        try { return get(t)(key); } catch { return key; }
+    };
 
     let name = '';
     let email = '';
@@ -10,16 +16,28 @@
     let emailDirty = false;
     const emailIsValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+    let formDisabled = false;
+    onMount(() => {
+        try {
+            const stored = localStorage.getItem('contactFormDisabled');
+            if (stored === 'true') {
+                formDisabled = true;
+                success = translateHelper('contact.success');
+            }
+        } catch {}
+    });
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (formDisabled) return; // evitar envíos si ya fue deshabilitado
         success = '';
         error = '';
         if (!name || !email || !message) {
-            error = t('contact.required');
+            error = translateHelper('contact.required');
             return;
         }
         if (!emailIsValid(email)) {
-            error = t('contact.invalid_email');
+            error = translateHelper('contact.invalid_email');
             return;
         }
         isSubmitting = true;
@@ -30,16 +48,18 @@
                 body: JSON.stringify({name, email, message})
             });
             if (res.ok) {
-                success = t('contact.success');
+                success = translateHelper('contact.success');
                 name = '';
                 email = '';
                 message = '';
                 emailDirty = false;
+                formDisabled = true;
+                try { localStorage.setItem('contactFormDisabled', 'true'); } catch {}
             } else {
-                error = t('contact.error');
+                error = translateHelper('contact.error');
             }
         } catch (err) {
-            error = t('contact.server_error');
+            error = translateHelper('contact.server_error');
         } finally {
             isSubmitting = false;
         }
@@ -73,75 +93,77 @@
             </div>
 
             <form class="contact-form" on:submit|preventDefault={handleSubmit}>
-                <div class="form-group">
-                    <label class="form-label" for="name">{$t('contact.name')}</label>
-                    <input
-                            bind:value={name}
-                            class="form-input"
-                            id="name"
-                            placeholder={$t('contact.placeholders.name')}
-                            required
-                            type="text"
-                    />
-                </div>
+                <fieldset disabled={formDisabled} style="border:0;padding:0;margin:0;">
+                    <div class="form-group">
+                        <label class="form-label" for="name">{$t('contact.name')}</label>
+                        <input
+                                bind:value={name}
+                                class="form-input"
+                                id="name"
+                                placeholder={$t('contact.placeholders.name')}
+                                required
+                                type="text"
+                        />
+                    </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="email">{$t('contact.email')}</label>
-                    <input
-                            bind:value={email}
-                            class="form-input"
-                            class:error={emailDirty && !emailIsValid(email)}
-                            id="email"
-                            on:input={() => emailDirty = true}
-                            placeholder={$t('contact.placeholders.email')}
-                            required
-                            type="email"
-                    />
-                    {#if emailDirty && !emailIsValid(email)}
-                        <p class="error-message">{$t('contact.invalid_email')}</p>
+                    <div class="form-group">
+                        <label class="form-label" for="email">{$t('contact.email')}</label>
+                        <input
+                                bind:value={email}
+                                class="form-input"
+                                class:error={emailDirty && !emailIsValid(email)}
+                                id="email"
+                                on:input={() => emailDirty = true}
+                                placeholder={$t('contact.placeholders.email')}
+                                required
+                                type="email"
+                        />
+                        {#if emailDirty && !emailIsValid(email)}
+                            <p class="error-message">{$t('contact.invalid_email')}</p>
+                        {/if}
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="message">{$t('contact.message')}</label>
+                        <textarea
+                                bind:value={message}
+                                class="form-textarea"
+                                id="message"
+                                placeholder={$t('contact.placeholders.message')}
+                                required
+                                rows="5"
+                        ></textarea>
+                    </div>
+
+                    {#if success}
+                        <div class="message success-message" role="status" aria-live="polite">
+                            <i class="fas fa-check-circle message-icon"></i>
+                            <span>{success}</span>
+                        </div>
                     {/if}
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="message">{$t('contact.message')}</label>
-                    <textarea
-                            bind:value={message}
-                            class="form-textarea"
-                            id="message"
-                            placeholder={$t('contact.placeholders.message')}
-                            required
-                            rows="5"
-                    ></textarea>
-                </div>
-
-                <button
-                        class="submit-btn btn-animate"
-                        disabled={!name || !email || !message || !emailIsValid(email) || isSubmitting}
-                        type="submit"
-                >
-                    {#if isSubmitting}
-                        <span class="loading-spinner"></span>
-                        <span>{$t('contact.sending')}</span>
-                    {:else}
-                        <i class="fas fa-paper-plane"></i>
-                        <span>{$t('contact.send')}</span>
+                    {#if error}
+                        <div class="message error-message" role="alert" aria-live="assertive">
+                            <i class="fas fa-times-circle message-icon"></i>
+                            <span>{error}</span>
+                        </div>
                     {/if}
-                </button>
+
+                    <button
+                            class="submit-btn btn-animate"
+                            disabled={formDisabled || !name || !email || !message || !emailIsValid(email) || isSubmitting}
+                            type="submit"
+                    >
+                        {#if isSubmitting}
+                            <span class="loading-spinner"></span>
+                            <span>{$t('contact.sending')}</span>
+                        {:else}
+                            <i class="fas fa-paper-plane"></i>
+                            <span>{$t('contact.send')}</span>
+                        {/if}
+                    </button>
+                </fieldset>
             </form>
         </div>
-
-        {#if success}
-            <div class="message success-message">
-                <i class="fas fa-check-circle message-icon"></i>
-                <span>{success}</span>
-            </div>
-        {/if}
-        {#if error}
-            <div class="message error-message">
-                <i class="fas fa-times-circle message-icon"></i>
-                <span>{error}</span>
-            </div>
-        {/if}
     </div>
 </section>
 
@@ -336,7 +358,7 @@
 
     .message {
         max-width: 600px;
-        margin: var(--spacing-lg) auto 0;
+        margin: var(--spacing-lg) auto 1rem;
         padding: var(--spacing-md) var(--spacing-lg);
         border-radius: 8px;
         display: flex;
