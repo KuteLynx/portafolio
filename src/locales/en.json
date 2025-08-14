@@ -65,6 +65,10 @@
     "shinsekai": {
       "title": "Shinsekai Online Anime Figure Store",
       "desc": "I designed and developed a fullstack e-commerce from scratch with ASP.NET on the backend and Angular on the frontend. The platform integrated custom JWT authentication, Stripe payments, optimized storage in SQL Server, and a complete admin panel for inventory and content management. I automated deployments and CI/CD with Azure DevOps, ensuring speed and reliability in every delivery. Although the site was taken down by the client’s decision, the code remains available in my public repository."
+    },
+    "habituary": {
+      "title": "Habituary Intelligent Habit Platform (In Progress)",
+      "desc": "Habituary is a modern web app to build and reinforce healthy habits with a clean, scalability-oriented architecture. Backend in ASP.NET Core following Clean Architecture principles, decoupled REST API and PostgreSQL persistence via Entity Framework. Signup and authentication through Google OAuth2.0. The Angular frontend delivers a dynamic UI with progress dashboard, profiles and visualizations (actively under development). Focused on extensibility, traceability and a solid foundation for future advanced analytics."
     }
   },
   "footer": {

@@ -11,6 +11,19 @@
         </div>
 
         <ProjectCard
+                apiRepo="https://github.com/mtz-juncogerardo/Habituary"
+                repo="https://github.com/mtz-juncogerardo/Habituary-UI"
+                title={$t('projects.habituary.title')}
+                description={$t('projects.habituary.desc')}
+                images={[
+                '/images/habituary-dashboard.png',
+                '/images/habituary-login.png',
+                '/images/habituary-profile.png'
+            ]}
+                tech={["Angular", "ASP.NET Core", "Entity Framework", "PostgreSQL", "REST API", "OAuth2 Google"]}
+        />
+
+        <ProjectCard
                 apiRepo="https://github.com/mtz-juncogerardo/Shinsekai-API"
                 description={$t('projects.shinsekai.desc')}
                 images={[

@@ -37,6 +37,7 @@
                                 src={img}
                                 alt={title + ' screenshot'}
                                 class="project-image"
+                                on:click={() => openModal(img)}
                         />
                         <div class="image-overlay">
                             <span class="view-text">{$t('project_card.click_to_view')}</span>
