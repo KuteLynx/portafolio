@@ -17,7 +17,7 @@
   "home": {
     "hello": "¡Hola! Soy",
     "name": "Gerardo Martínez",
-    "desc": "Desarrollador web fullstack en Querétaro. Convierto tus ideas en aplicaciones web modernas, rápidas y listas para crecer.",
+    "desc": "Desarrollador web fullstack en Querétaro. Creo aplicaciones web modernas y agentes de IA para automatizar procesos de negocio y desarrollo de software.",
     "cv": "Solicitar cotización",
     "code_window": {
       "title": "portfolio.js",
@@ -75,10 +75,10 @@
   },
   "about": {
     "title": "Sobre mí",
-    "subtitle": "Desarrollador fullstack con enfoque en resultados para tu negocio",
+    "subtitle": "Desarrollador fullstack especializado en aplicaciones web, APIs y automatización con IA y agentes inteligentes",
     "p1": "Soy desarrollador web fullstack con más de 10 años de experiencia creando aplicaciones web, landing pages y APIs para empresas en México. Me especializo en <span>ASP.NET y Angular</span>, tecnologías que uso para construir desde sitios corporativos hasta plataformas empresariales completas.",
     "p2": "Trabajo de la mano contigo desde el primer día: entiendo qué necesita tu negocio, propongo la mejor solución técnica y la entrego funcionando. Sin rodeos, sin tecnicismos innecesarios. <span>Comunicación clara, entregas puntuales y código de calidad.</span>",
-    "p3": "Mi stack principal incluye <span>Angular, Svelte, ASP.NET, C#, PostgreSQL y TypeScript</span>. Con esto puedo construir prácticamente cualquier proyecto web que tengas en mente desde una landing page hasta un sistema completo con usuarios, pagos y dashboard.",
+    "p3": "Mi stack principal incluye <span>Angular, Svelte, ASP.NET, C#, PostgreSQL y TypeScript</span>. Con esto puedo construir prácticamente cualquier proyecto web que tengas en mente desde una landing page hasta un sistema completo con usuarios, pagos y dashboard. También diseño e implemento <span>agentes de IA y flujos automatizados (AI agentic workflows)</span> con Python, LangChain y Ollama para optimizar procesos de negocio y desarrollo de software.",
     "p4": "Trabajo desde Querétaro acompañado de cuatro supervisores felinos que garantizan que cada línea de código tenga el nivel adecuado de calidad (y ronroneo). <span>¿Tienes un proyecto en mente? Cuéntame y te envío una cotización sin compromiso.</span>",
     "stats": {
       "years": "Años de Experiencia",
@@ -89,20 +89,21 @@
       "title": "Más allá del código",
       "cats": "Convivir con mis gatos",
       "coffee": "Café de especialidad",
-      "reading": "Tecnología e innovación",
+      "reading": "Tecnología, IA e innovación",
       "gaming": "Videojuegos"
     }
   },
   "techstack": {
     "title": "Habilidades técnicas",
-    "subtitle": "Tecnologías y herramientas con las que convierto ideas en soluciones digitales",
+    "subtitle": "Tecnologías y herramientas con las que convierto ideas en soluciones digitales, incluyendo inteligencia artificial, agentes de IA y automatización inteligente",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
       "database": "Base de Datos",
-      "tools": "Herramientas"
+      "tools": "Herramientas",
+      "ai": "IA y Agentes"
     },
-    "experience": "Más de 10 años creando soluciones full-stack de alto rendimiento"
+    "experience": "Más de 10 años creando soluciones full-stack de alto rendimiento, ahora potenciadas con inteligencia artificial y agentes automatizados"
   },
   "projects": {
     "title": "Proyectos Recientes",

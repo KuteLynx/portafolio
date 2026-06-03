@@ -17,7 +17,7 @@
   "home": {
     "hello": "Hello! I'm",
     "name": "Gerardo Martínez",
-    "desc": "Fullstack web developer in Querétaro, Mexico. I turn your ideas into modern, fast web applications ready to scale.",
+    "desc": "Fullstack web developer in Querétaro, Mexico. I build modern web applications and AI agents to automate business processes and software development.",
     "cv": "Get a quote",
     "code_window": {
       "title": "portfolio.js",
@@ -75,10 +75,10 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Fullstack developer focused on results for your business",
+    "subtitle": "Fullstack developer specialized in web applications, APIs, and AI-powered automation with intelligent agents",
     "p1": "I'm a fullstack web developer with over 10 years of experience building web applications, landing pages, and APIs for businesses in Mexico. I specialize in <span>ASP.NET and Angular</span>, technologies I use to build everything from corporate sites to full enterprise platforms.",
     "p2": "I work with you from day one: I understand what your business needs, propose the best technical solution, and deliver it working. No jargon, no unnecessary complexity. <span>Clear communication, on-time delivery, quality code.</span>",
-    "p3": "My core stack includes <span>Angular, Svelte, ASP.NET, C#, PostgreSQL, and TypeScript</span>. With these, I can build virtually any web project you have in mind — from a landing page to a full system with users, payments, and dashboards.",
+    "p3": "My core stack includes <span>Angular, Svelte, ASP.NET, C#, PostgreSQL, and TypeScript</span>. With these, I can build virtually any web project you have in mind — from a landing page to a full system with users, payments, and dashboards. I also design and implement <span>AI agents and automated workflows (AI agentic workflows)</span> using Python, LangChain, and Ollama to optimize business processes and software development.",
     "p4": "I work from Querétaro alongside four feline supervisors who ensure every line of code meets the highest quality standards (and purr-factor). <span>Got a project in mind? Tell me about it and I'll send you a free quote.</span>",
     "stats": {
       "years": "Years of Experience",
@@ -89,20 +89,21 @@
       "title": "Beyond the code",
       "cats": "Hanging with my cats",
       "coffee": "Specialty coffee",
-      "reading": "Tech & innovation",
+      "reading": "Tech, AI & innovation",
       "gaming": "Video games"
     }
   },
   "techstack": {
     "title": "Technical Skills",
-    "subtitle": "Technologies and tools I use to turn ideas into digital solutions",
+    "subtitle": "Technologies and tools I use to turn ideas into digital solutions, including artificial intelligence, AI agents, and intelligent automation",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
       "database": "Database",
-      "tools": "Tools"
+      "tools": "Tools",
+      "ai": "AI & Agents"
     },
-    "experience": "Over 10 years creating high-performance full-stack solutions"
+    "experience": "Over 10 years creating high-performance full-stack solutions, now powered by artificial intelligence and automated agents"
   },
   "projects": {
     "title": "Recent Projects",

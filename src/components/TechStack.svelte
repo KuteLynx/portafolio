@@ -18,14 +18,20 @@
         {name: 'LINQ', icon: 'fas fa-search', category: 'backend'},
         {name: 'SQL', icon: 'fas fa-database', category: 'database'},
         {name: 'Git', icon: 'fab fa-git-alt', category: 'tools'},
-        {name: 'Linux', icon: 'fab fa-linux', category: 'tools'}
+        {name: 'Linux', icon: 'fab fa-linux', category: 'tools'},
+        {name: 'Python', icon: 'fab fa-python', category: 'ai'},
+        {name: 'LangChain', icon: 'fas fa-link', category: 'ai'},
+        {name: 'Ollama', icon: 'fas fa-microchip', category: 'ai'},
+        {name: 'AI Agents', icon: 'fas fa-robot', category: 'ai'},
+        {name: 'LLMs', icon: 'fas fa-brain', category: 'ai'}
     ];
 
     let categories = $derived({
         frontend: {name: $t('techstack.categories.frontend'), color: 'var(--color-accent)'},
         backend: {name: $t('techstack.categories.backend'), color: 'var(--color-accent-secondary)'},
         database: {name: $t('techstack.categories.database'), color: 'var(--color-accent-tertiary)'},
-        tools: {name: $t('techstack.categories.tools'), color: 'var(--color-warning)'}
+        tools: {name: $t('techstack.categories.tools'), color: 'var(--color-warning)'},
+        ai: {name: $t('techstack.categories.ai'), color: 'var(--color-accent-secondary)'}
     });
 
 </script>
