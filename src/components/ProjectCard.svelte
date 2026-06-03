@@ -1,14 +1,8 @@
 <script>
-    export let title;
-    export let description;
-    export let tech = [];
-    export let repo;
-    export let demo = null;
-    export let apiRepo;
-    export let images = [];
+    let { title, description, tech = [], repo, demo = null, apiRepo, images = [] } = $props();
     import {t} from 'svelte-i18n';
 
-    let modalImg = null;
+    let modalImg = $state(null);
 
     function openModal(img) {
         modalImg = img;
@@ -32,12 +26,13 @@
         <div class="images-container">
             <div class="images-grid">
                 {#each images as img, index}
-                    <div class="image-wrapper" style="animation-delay: {index * 0.1}s" on:click={() => openModal(img)} role="button" tabindex="0" aria-label={`Abrir imagen de ${title}`} on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && openModal(img)}>
+                    <div class="image-wrapper" style="animation-delay: {index * 0.1}s" onclick={() => openModal(img)} role="button" tabindex="0" aria-label={`Abrir imagen de ${title}`} onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && openModal(img)}>
                         <img
                                 src={img}
                                 alt={title + ' screenshot'}
                                 class="project-image"
-                                on:click={() => openModal(img)}
+                                loading="lazy"
+                                onclick={() => openModal(img)}
                         />
                         <div class="image-overlay">
                             <span class="view-text">{$t('project_card.click_to_view')}</span>
@@ -82,9 +77,9 @@
 </div>
 
 {#if modalImg}
-    <div class="modal" on:click|self={closeModal} role="dialog" aria-modal="true" tabindex="0" aria-label="Vista previa de imagen" on:keydown={(e) => e.key === 'Escape' && closeModal()}>
+    <div class="modal" onclick={(e) => { if (e.target === e.currentTarget) closeModal(); }} role="dialog" aria-modal="true" tabindex="0" aria-label="Vista previa de imagen" onkeydown={(e) => e.key === 'Escape' && closeModal()}>
         <div class="modal-content">
-            <button class="close-btn" on:click={closeModal} aria-label="{$t('project_card.close')}">
+            <button class="close-btn" onclick={closeModal} aria-label="{$t('project_card.close')}">
                 <i class="fas fa-times"></i>
             </button>
             <img src={modalImg} alt="{$t('project_card.screenshot')}" class="modal-image"/>

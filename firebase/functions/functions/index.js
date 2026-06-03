@@ -8,7 +8,9 @@ const app = express();
 const corsOptions = {
     origin: (origin, callback) => {
         const allowedOrigins = [
-            'http://localhost:5173'
+            'http://localhost:5173',
+            'https://www.lordofcats.online',
+            'https://lordofcats.online'
         ];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
@@ -44,11 +46,11 @@ app.post('/sendContactEmail', async (req, res) => {
         }
 
         const mailOptions = {
-            from: `"Portafolio Contacto" <${name}>`,
+            from: `"Portafolio Contacto" <${myMail}>`,
             to: myMail,
             replyTo: email,
             subject: `Nuevo mensaje de ${name}`,
-            text: `De: ${email}\n\n${message}`
+            text: `De: ${name} (${email})\n\n${message}`
         };
 
         await getTransporter().sendMail(mailOptions);

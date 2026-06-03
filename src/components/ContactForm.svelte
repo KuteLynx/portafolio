@@ -1,28 +1,27 @@
 <script>
     import {t} from 'svelte-i18n';
-    import { onMount } from 'svelte';
     import { get } from 'svelte/store';
 
-    const translateHelper = (key) => {
+    const _ = (key) => {
         try { return get(t)(key); } catch { return key; }
     };
 
-    let name = '';
-    let email = '';
-    let message = '';
-    let isSubmitting = false;
-    let success = '';
-    let error = '';
-    let emailDirty = false;
+    let name = $state('');
+    let email = $state('');
+    let message = $state('');
+    let isSubmitting = $state(false);
+    let success = $state('');
+    let error = $state('');
+    let emailDirty = $state(false);
     const emailIsValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-    let formDisabled = false;
-    onMount(() => {
+    let formDisabled = $state(false);
+    $effect(() => {
         try {
             const stored = localStorage.getItem('contactFormDisabled');
             if (stored === 'true') {
                 formDisabled = true;
-                success = translateHelper('contact.success');
+                success = _('contact.success');
             }
         } catch {}
     });
@@ -33,11 +32,11 @@
         success = '';
         error = '';
         if (!name || !email || !message) {
-            error = translateHelper('contact.required');
+            error = _('contact.required');
             return;
         }
         if (!emailIsValid(email)) {
-            error = translateHelper('contact.invalid_email');
+            error = _('contact.invalid_email');
             return;
         }
         isSubmitting = true;
@@ -48,7 +47,7 @@
                 body: JSON.stringify({name, email, message})
             });
             if (res.ok) {
-                success = translateHelper('contact.success');
+                success = _('contact.success');
                 name = '';
                 email = '';
                 message = '';
@@ -56,10 +55,10 @@
                 formDisabled = true;
                 try { localStorage.setItem('contactFormDisabled', 'true'); } catch {}
             } else {
-                error = translateHelper('contact.error');
+                error = _('contact.error');
             }
         } catch (err) {
-            error = translateHelper('contact.server_error');
+            error = _('contact.server_error');
         } finally {
             isSubmitting = false;
         }
@@ -92,7 +91,7 @@
                 </div>
             </div>
 
-            <form class="contact-form" on:submit|preventDefault={handleSubmit}>
+            <form class="contact-form" onsubmit={(e) => { e.preventDefault(); handleSubmit(e); }}>
                 <fieldset disabled={formDisabled} style="border:0;padding:0;margin:0;">
                     <div class="form-group">
                         <label class="form-label" for="name">{$t('contact.name')}</label>
@@ -113,7 +112,7 @@
                                 class="form-input"
                                 class:error={emailDirty && !emailIsValid(email)}
                                 id="email"
-                                on:input={() => emailDirty = true}
+                                oninput={() => emailDirty = true}
                                 placeholder={$t('contact.placeholders.email')}
                                 required
                                 type="email"

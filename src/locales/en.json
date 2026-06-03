@@ -16,7 +16,12 @@
     "projects": "Projects",
     "contact": "Contact",
     "switch_language_es": "Spanish",
-    "switch_language_en": "English"
+    "switch_language_en": "English",
+    "theme": {
+      "orange": "Orange",
+      "blue": "Blue",
+      "green": "Green"
+    }
   },
   "home": {
     "hello": "Hello! I’m",

@@ -1,8 +1,11 @@
 <script>
     import {t} from 'svelte-i18n';
-    import {onMount} from 'svelte';
 
-    let mounted = false;
+    let mounted = $state(false);
+
+    $effect(() => {
+        mounted = true;
+    });
 
     const skills = [
         {name: 'JavaScript', icon: 'fab fa-js-square', category: 'frontend'},
@@ -25,9 +28,6 @@
         tools: {name: $t('techstack.categories.tools'), color: 'var(--color-warning)'}
     };
 
-    onMount(() => {
-        mounted = true;
-    });
 </script>
 
 <section class="tech-stack">

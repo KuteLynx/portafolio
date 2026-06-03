@@ -1,11 +1,10 @@
 <script>
     import {t} from 'svelte-i18n';
-    import {onMount} from 'svelte';
     import HeroCodeWindow from '../components/HeroCodeWindow.svelte';
 
-    let mounted = false;
+    let mounted = $state(false);
 
-    onMount(() => {
+    $effect(() => {
         mounted = true;
     });
 </script>
@@ -24,7 +23,7 @@
                     {$t('home.desc')}
                 </p>
                 <div class="cta-buttons" class:scale-in={mounted}>
-                    <a class="cv-button btn-animate" href="/GerardoMartinez_CV.pdf" target="_blank">
+                    <a class="cv-button btn-animate" href="{import.meta.env.BASE_URL}GerardoMartinez_CV.pdf" target="_blank">
                         <span class="button-text">{$t('home.cv')}</span>
                         <i class="fas fa-file-alt"></i>
                     </a>

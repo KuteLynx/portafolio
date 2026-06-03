@@ -1,21 +1,17 @@
 ﻿<script>
     import {locale, t} from 'svelte-i18n';
-    import {writable} from 'svelte/store';
-
-    const currentLang = writable('es');
 
     function setLang(lang) {
-        currentLang.set(lang);
         $locale = lang;
     }
 </script>
 
 <div class="lang-switch-group">
-    <button class:active={$currentLang === 'en'} on:click={() => setLang('en')}>
+    <button class:active={$locale === 'en'} onclick={() => setLang('en')}>
         {$t('navbar.switch_language_en')}
     </button>
     <span>|</span>
-    <button class:active={$currentLang === 'es'} on:click={() => setLang('es')}>
+    <button class:active={$locale === 'es'} onclick={() => setLang('es')}>
         {$t('navbar.switch_language_es')}
     </button>
 </div>

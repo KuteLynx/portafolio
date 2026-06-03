@@ -1,15 +1,14 @@
 <script>
-    import {onMount} from 'svelte';
     import {t} from 'svelte-i18n';
     import LangSwitch from './LangSwitch.svelte';
 
-    let isOpen = false;
-    let activeSection = 'home';
-    let scrolled = false;
+    let isOpen = $state(false);
+    let activeSection = $state('home');
+    let scrolled = $state(false);
 
     // Theme picker state
-    let showThemeSelect = false;
-    let theme = 'orange';
+    let showThemeSelect = $state(false);
+    let theme = $state('orange');
 
     const sectionIds = [
         {key: 'home', id: ''},
@@ -18,12 +17,12 @@
         {key: 'contact', id: 'contact'}
     ];
 
-    $: links = [
+    let links = $derived([
         {name: $t('navbar.home'), href: '#', key: 'home'},
         {name: $t('navbar.projects'), href: '#projects', key: 'projects'},
         {name: $t('navbar.about'), href: '#about', key: 'about'},
         {name: $t('navbar.contact'), href: '#contact', key: 'contact'}
-    ];
+    ]);
 
     const toggleMenu = () => {
         isOpen = !isOpen;
@@ -63,7 +62,7 @@
         showThemeSelect = !showThemeSelect;
     }
 
-    onMount(() => {
+    $effect(() => {
         window.addEventListener('scroll', handleScroll);
         updateActiveSection();
         // Cargar tema guardado
@@ -88,24 +87,24 @@
 
         <!-- Theme picker (desktop) -->
         <div class="theme-desktop">
-            <button aria-label="Cambiar tema" class="theme-button btn-animate" on:click={toggleThemeSelect}
+            <button aria-label="Cambiar tema" class="theme-button btn-animate" onclick={toggleThemeSelect}
                     aria-expanded={showThemeSelect} aria-controls="theme-select">
                 <i class="fas fa-palette"></i>
             </button>
             {#if showThemeSelect}
                 <div class="theme-select-popover">
                     <label for="theme-select" class="sr-only">Tema</label>
-                    <select id="theme-select" class="theme-select" bind:value={theme} on:change={(e) => { applyTheme(e.target.value); showThemeSelect = false; }}>
-                        <option value="orange">Orange</option>
-                        <option value="blue">Blue</option>
-                        <option value="green">Green</option>
+                    <select id="theme-select" class="theme-select" bind:value={theme} onchange={(e) => { applyTheme(e.target.value); showThemeSelect = false; }}>
+                        <option value="orange">{$t('navbar.theme.orange')}</option>
+                        <option value="blue">{$t('navbar.theme.blue')}</option>
+                        <option value="green">{$t('navbar.theme.green')}</option>
                     </select>
                 </div>
             {/if}
         </div>
 
         <!-- Hamburger Menu Button -->
-        <button aria-label="Toggle menu" class="hamburger btn-animate" on:click={toggleMenu}>
+        <button aria-label="Toggle menu" class="hamburger btn-animate" onclick={toggleMenu}>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -128,13 +127,13 @@
         <!-- Mobile Navigation -->
         {#if isOpen}
             <div class="mobile-overlay" role="button" tabindex="0" aria-label="Cerrar menú"
-                 on:click={() => isOpen = false}
-                 on:keydown={(e) => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') isOpen = false; }}></div>
+                 onclick={() => isOpen = false}
+                 onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') isOpen = false; }}></div>
             <ul class="nav-links mobile">
                 {#each links as link, index}
                     <li class="nav-item" style="animation-delay: {index * 0.1}s">
                         <a href={link.href}
-                           on:click={() => isOpen = false}
+                           onclick={() => isOpen = false}
                            class:active={activeSection === link.key}
                            class="nav-link">
                             <span class="nav-number">0{index + 1}</span>
@@ -145,10 +144,10 @@
                 <li class="theme-mobile">
                     <div class="theme-mobile-inner">
                         <i class="fas fa-palette"></i>
-                        <select class="theme-select" bind:value={theme} on:change={(e) => applyTheme(e.target.value)}>
-                            <option value="orange">Orange</option>
-                            <option value="blue">Blue</option>
-                            <option value="green">Green</option>
+                        <select class="theme-select" bind:value={theme} onchange={(e) => applyTheme(e.target.value)}>
+                            <option value="orange">{$t('navbar.theme.orange')}</option>
+                            <option value="blue">{$t('navbar.theme.blue')}</option>
+                            <option value="green">{$t('navbar.theme.green')}</option>
                         </select>
                     </div>
                 </li>
