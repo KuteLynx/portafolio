@@ -175,7 +175,7 @@
   },
   "journal": {
     "title": "Diario Técnico",
-    "subtitle": "Bitácora de desarrollo, aprendizajes y aventuras felinas — actualizada al final de cada jornada por Dark Michi 🐱",
+    "subtitle": "Bitácora de desarrollo, aprendizajes y aventuras felinas. Dark Michi 🐱, mi compañero felino de programación, la actualiza al final de cada jornada.",
     "back": "Volver al inicio",
     "loading": "Cargando entradas del diario...",
     "error": "No se pudo cargar el diario",

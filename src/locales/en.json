@@ -175,7 +175,7 @@
   },
   "journal": {
     "title": "Dev Journal",
-    "subtitle": "Development log, learnings and feline adventures — updated at the end of each day by Dark Michi 🐱",
+    "subtitle": "Development log, learnings and feline adventures. Dark Michi 🐱, my feline programming companion, updates it at the end of each day.",
     "back": "Back to home",
     "loading": "Loading journal entries...",
     "error": "Could not load the journal",
