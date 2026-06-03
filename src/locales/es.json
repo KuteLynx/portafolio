@@ -62,6 +62,12 @@
         "title": "Web Apps Responsive",
         "desc": "Aplicaciones web que funcionan perfectamente en cualquier dispositivo: móvil, tablet y escritorio. Una sola base de código para todas las pantallas.",
         "technologies": ["Angular", "Svelte", "CSS Moderno"]
+      },
+      {
+        "icon": "fas fa-robot",
+        "title": "AI Workflow Automation",
+        "desc": "Diseño e implementación de agentes de IA para automatizar procesos de negocio, desarrollo de software y operaciones digitales.",
+        "technologies": ["Python", "LangChain", "Ollama", "AI Agents"]
       }
     ],
     "cta": "¿Listo para empezar tu proyecto?",
