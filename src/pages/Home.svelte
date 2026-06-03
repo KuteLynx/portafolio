@@ -23,9 +23,9 @@
                     {$t('home.desc')}
                 </p>
                 <div class="cta-buttons" class:scale-in={mounted}>
-                    <a class="cv-button btn-animate" href="{import.meta.env.BASE_URL}GerardoMartinez_CV.pdf" target="_blank">
+                    <a class="cv-button btn-animate" href="https://linkedin.com/in/gerardo-martinez-junco-174315377" target="_blank">
                         <span class="button-text">{$t('home.cv')}</span>
-                        <i class="fas fa-file-alt"></i>
+                        <i class="fab fa-linkedin"></i>
                     </a>
                 </div>
             </div>
