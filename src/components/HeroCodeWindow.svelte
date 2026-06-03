@@ -151,34 +151,7 @@
 
   @media (max-width: 768px) {
     .hero-visual {
-      order: -1;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-    }
-
-    .code-window {
-      max-width: 100%;
-      width: 100%;
-    }
-
-    /* Mostrar scrollbar sólo en móviles */
-    .code-block {
-      scrollbar-width: thin; /* Firefox */
-      -ms-overflow-style: auto; /* IE/Edge */
-    }
-
-    .code-block::-webkit-scrollbar {
-      display: block; /* WebKit */
-      height: 8px;
-    }
-
-    .code-block::-webkit-scrollbar-track {
-      background: var(--color-bg-tertiary);
-    }
-
-    .code-block::-webkit-scrollbar-thumb {
-      background: var(--color-accent);
-      border-radius: 4px;
+      display: none;
     }
   }
 </style>
