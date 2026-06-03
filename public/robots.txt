@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.lordofcats.online/portafolio/sitemap.xml
+Sitemap: https://www.lordofcats.online/sitemap.xml

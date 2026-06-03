@@ -11,16 +11,29 @@
         </div>
 
         <ProjectCard
-                apiRepo="https://github.com/mtz-juncogerardo/Shinsekai-API"
-                description={$t('projects.shinsekai.desc')}
-                images={[
-                '/images/shinsekai-homepage.png',
-                '/images/shinsekai-login.png',
-                '/images/shinsekai-checkout.png'
-            ]}
-                repo="https://github.com/mtz-juncogerardo/Shinsekai-Client"
-                tech={["Angular", "Entity Framework", "Asp.Net", "SQL", "Azure DevOps", "Stripe"]}
-                title={$t('projects.shinsekai.title')}
+            description={$t('projects.pokedex.desc')}
+            images={['/images/pokedex-app-screenshot.png']}
+            repo="https://github.com/KuteLynx/pokedex"
+            demo="https://kutelynx.github.io/pokedex/pokedex/"
+            tech={["Angular", "TypeScript", "PokéAPI", "GitHub Pages"]}
+            title={$t('projects.pokedex.title')}
+        />
+
+        <ProjectCard
+            description={$t('projects.beatbox.desc')}
+            images={['/images/beatbox-screenshot.png']}
+            repo="https://github.com/mtz-juncogerardo/beatbox-studio"
+            demo="https://mtz-juncogerardo.github.io/beatbox-studio/"
+            tech={["JavaScript", "Web Audio API", "HTML/CSS"]}
+            title={$t('projects.beatbox.title')}
+        />
+
+        <ProjectCard
+            description={$t('projects.lynx-moneyleaks.desc')}
+            repo="https://dev.azure.com/mtzjuncogerardo/LynxMoneyLeaks/_git/LynxMoneyLeaks"
+            tech={["Angular", ".NET 10", "PostgreSQL", "Azure DevOps"]}
+            title={$t('projects.lynx-moneyleaks.title')}
+            status="coming-soon"
         />
     </div>
 </section>

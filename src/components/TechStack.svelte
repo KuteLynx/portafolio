@@ -21,12 +21,12 @@
         {name: 'Linux', icon: 'fab fa-linux', category: 'tools'}
     ];
 
-    const categories = {
+    let categories = $derived({
         frontend: {name: $t('techstack.categories.frontend'), color: 'var(--color-accent)'},
         backend: {name: $t('techstack.categories.backend'), color: 'var(--color-accent-secondary)'},
         database: {name: $t('techstack.categories.database'), color: 'var(--color-accent-tertiary)'},
         tools: {name: $t('techstack.categories.tools'), color: 'var(--color-warning)'}
-    };
+    });
 
 </script>
 

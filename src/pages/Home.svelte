@@ -23,9 +23,9 @@
                     {$t('home.desc')}
                 </p>
                 <div class="cta-buttons" class:scale-in={mounted}>
-                    <a class="cv-button btn-animate" href="https://linkedin.com/in/gerardo-martinez-junco-174315377" target="_blank">
+                    <a class="cv-button btn-animate" href="#contact">
                         <span class="button-text">{$t('home.cv')}</span>
-                        <i class="fab fa-linkedin"></i>
+                        <i class="fas fa-paper-plane"></i>
                     </a>
                 </div>
             </div>

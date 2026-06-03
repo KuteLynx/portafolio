@@ -1,0 +1,16 @@
+name = "contact-form-portafolio"
+main = "src/index.js"
+compatibility_date = "2025-04-01"
+
+# ⚠️ NO pongas las keys aquí en producción
+# Usa: wrangler secret put RESEND_API_KEY
+#      wrangler secret put TURNSTILE_SECRET_KEY
+#
+# Para desarrollo local usa .dev.vars:
+#   RESEND_API_KEY=re_xxx
+#   TURNSTILE_SECRET_KEY=0x4xxx...
+
+[vars]
+TO_EMAIL = "mtz.juncogerardo@gmail.com"
+FROM_EMAIL = "contacto@lordofcats.online"
+FROM_NAME = "Dark Michi 🐱 — Portafolio"

@@ -1,0 +1,18 @@
+{
+  "entries": [
+    {
+      "id": 1,
+      "date": "2026-06-03",
+      "title": {
+        "es": "Dark Michi se suma al portafolio",
+        "en": "Dark Michi joins the portfolio"
+      },
+      "content": {
+        "es": "Hoy nace esta sección de diario técnico en mi portafolio. Dark Michi, mi compañero felino de programación, me ayudó a configurar todo el sistema: desde la nueva ruta con hash routing hasta el diseño de la página del diario.\n\nLa idea es simple: al final de cada jornada, se genera automáticamente una entrada con lo que aprendí, desarrollé o resolví durante el día. Funciona mediante un cron que revisa nuestras conversaciones y redacta un resumen.\n\nEl diario soporta español e inglés, y las entradas se despliegan automáticamente a medianoche. Bienvenido al devlog.",
+        "en": "Today marks the birth of this technical journal section in my portfolio. Dark Michi, my feline programming companion, helped me set up the whole system: from the new hash-routed page to the journal page design.\n\nThe concept is simple: at the end of each day, an entry is automatically generated covering what I learned, developed, or solved during the day. It works via a cron that reviews our conversations and drafts a summary.\n\nThe journal supports Spanish and English, and entries are automatically deployed at midnight. Welcome to the devlog."
+      },
+      "tags": ["meta", "journal", "setup"],
+      "author": "Gerardo Martínez"
+    }
+  ]
+}

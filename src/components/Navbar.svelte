@@ -12,6 +12,7 @@
 
     const sectionIds = [
         {key: 'home', id: ''},
+        {key: 'services', id: 'services'},
         {key: 'projects', id: 'projects'},
         {key: 'about', id: 'about'},
         {key: 'contact', id: 'contact'}
@@ -19,8 +20,10 @@
 
     let links = $derived([
         {name: $t('navbar.home'), href: '#', key: 'home'},
+        {name: $t('navbar.services'), href: '#services', key: 'services'},
         {name: $t('navbar.projects'), href: '#projects', key: 'projects'},
         {name: $t('navbar.about'), href: '#about', key: 'about'},
+        {name: $t('navbar.journal'), href: '#!/journal', key: 'journal'},
         {name: $t('navbar.contact'), href: '#contact', key: 'contact'}
     ]);
 
@@ -185,12 +188,13 @@
         align-items: center;
         justify-content: space-between;
         height: 70px;
-        gap: var(--spacing-md);
+        gap: var(--spacing-sm);
     }
 
     .logo {
         display: flex;
         align-items: center;
+        flex-shrink: 0;
     }
 
     .terminal-prompt {
@@ -242,7 +246,7 @@
         list-style: none;
         margin: 0;
         padding: 0;
-        gap: var(--spacing-lg);
+        gap: var(--spacing-sm);
     }
 
     .nav-item {
@@ -256,10 +260,10 @@
         gap: var(--spacing-sm);
         color: var(--color-text-secondary);
         font-weight: 500;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        padding: var(--spacing-sm) var(--spacing-md);
+        letter-spacing: 0.3px;
+        padding: var(--spacing-xs) var(--spacing-sm);
         border-radius: 6px;
         transition: all var(--transition-normal);
         position: relative;

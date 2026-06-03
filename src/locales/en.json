@@ -1,19 +1,10 @@
 {
-  "techstack": {
-    "title": "Technical Skills",
-    "subtitle": "Technologies and tools I use to turn complex ideas into memorable digital experiences",
-    "categories": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "database": "Database",
-      "tools": "Tools"
-    },
-    "experience": "Over 10 years creating high-performance full-stack solutions"
-  },
   "navbar": {
     "home": "Home",
-    "about": "About",
+    "services": "Services",
     "projects": "Projects",
+    "about": "About",
+    "journal": "Dev Journal",
     "contact": "Contact",
     "switch_language_es": "Spanish",
     "switch_language_en": "English",
@@ -24,52 +15,103 @@
     }
   },
   "home": {
-    "hello": "Hello! I’m",
+    "hello": "Hello! I'm",
     "name": "Gerardo Martínez",
-    "desc": "Code architect, craftsman of well-crafted software, and willing slave to four cats who believe they run my life.",
-    "cv": "Available on request",
+    "desc": "Fullstack web developer in Querétaro, Mexico. I turn your ideas into modern, fast web applications ready to scale.",
+    "cv": "Get a quote",
     "code_window": {
       "title": "portfolio.js",
       "const": "const",
       "developer": "developer",
       "name_prop": "name",
       "role_prop": "role",
-      "role": "Senior Fullstack Developer",
+      "role": "Fullstack Web Developer",
       "skills_prop": "skills",
       "passion_prop": "passion",
-      "passion": "Building unique digital experiences",
+      "passion": "Building web apps and landing pages that grow your business",
       "function": "function",
       "get_in_touch": "getInTouch",
       "return": "return",
-      "message": "Let's transform your idea into reality."
+      "message": "Tell me about your project and I'll give you a free quote."
     }
+  },
+  "services": {
+    "title": "Web Development Services",
+    "subtitle": "From idea to reality: tailor-made digital solutions for your business",
+    "items": [
+      {
+        "icon": "fas fa-globe",
+        "title": "Landing Pages",
+        "desc": "Professional business pages optimized for conversions, fast loading, and modern design. Perfect for campaigns, launches, or your digital presence.",
+        "technologies": ["Svelte", "Angular", "HTML/CSS"]
+      },
+      {
+        "icon": "fas fa-cogs",
+        "title": "Web Applications",
+        "desc": "Full-featured platforms with admin panels, user authentication, databases, and RESTful APIs. From CRM systems to marketplaces.",
+        "technologies": ["Angular", "ASP.NET", "PostgreSQL"]
+      },
+      {
+        "icon": "fas fa-code",
+        "title": "APIs & Backend",
+        "desc": "Robust, scalable .NET APIs, third-party integrations, process automation, and backend infrastructure that scales with your business.",
+        "technologies": ["C#", "ASP.NET", "SQL"]
+      },
+      {
+        "icon": "fas fa-mobile-alt",
+        "title": "Responsive Web Apps",
+        "desc": "Web applications that work perfectly on any device — mobile, tablet, and desktop. One codebase for every screen size.",
+        "technologies": ["Angular", "Svelte", "Modern CSS"]
+      }
+    ],
+    "cta": "Ready to start your project?",
+    "cta_button": "Get a quote"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Get to know the person behind the code",
-    "p1": "I’m a fullstack developer with over a decade of experience building powerful, secure, and scalable web applications. I specialize in ASP.NET and Angular, delivering enterprise solutions end-to-end, from solid backend architectures to smooth, user-friendly interfaces.",
-    "p2": "My day starts with coffee, keyboard, and terminal ready, accompanied by the unsolicited supervision of my feline coworkers: Gustavo, Gretta, Gina, and Gunter. Thanks to them, I’ve mastered the art of coding while dodging tails and paws on my desk.",
-    "p3": "I believe a great developer not only solves problems but also anticipates future obstacles, writes maintainable code, understands the business behind the solution, and fosters collaboration in every team they join.",
-    "p4": "Lately, I’ve been diving into Svelte, fascinated by its minimalism and how quickly it turns ideas into production-ready products.",
+    "subtitle": "Fullstack developer focused on results for your business",
+    "p1": "I'm a fullstack web developer with over 10 years of experience building web applications, landing pages, and APIs for businesses in Mexico. I specialize in <span>ASP.NET and Angular</span>, technologies I use to build everything from corporate sites to full enterprise platforms.",
+    "p2": "I work with you from day one: I understand what your business needs, propose the best technical solution, and deliver it working. No jargon, no unnecessary complexity. <span>Clear communication, on-time delivery, quality code.</span>",
+    "p3": "My core stack includes <span>Angular, Svelte, ASP.NET, C#, PostgreSQL, and TypeScript</span>. With these, I can build virtually any web project you have in mind — from a landing page to a full system with users, payments, and dashboards.",
+    "p4": "I work from Querétaro alongside four feline supervisors who ensure every line of code meets the highest quality standards (and purr-factor). <span>Got a project in mind? Tell me about it and I'll send you a free quote.</span>",
     "stats": {
       "years": "Years of Experience",
-      "technologies": "Technologies Mastered",
+      "technologies": "Technologies",
       "cats": "Feline Supervisors"
     },
     "interests": {
-      "title": "When I’m not coding...",
-      "cats": "Feline Resource Manager",
-      "coffee": "Office Coffee Sommelier",
-      "reading": "Technology Trends Explorer",
-      "gaming": "Competitive Casual Gamer"
+      "title": "Beyond the code",
+      "cats": "Hanging with my cats",
+      "coffee": "Specialty coffee",
+      "reading": "Tech & innovation",
+      "gaming": "Video games"
     }
   },
+  "techstack": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I use to turn ideas into digital solutions",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "tools": "Tools"
+    },
+    "experience": "Over 10 years creating high-performance full-stack solutions"
+  },
   "projects": {
-    "title": "Featured Projects",
-    "subtitle": "A glimpse of the impact and quality I bring to every development",
-    "shinsekai": {
-      "title": "Shinsekai Online Anime Figure Store",
-      "desc": "I designed and developed a fullstack e-commerce from scratch with ASP.NET on the backend and Angular on the frontend. The platform integrated custom JWT authentication, Stripe payments, optimized storage in SQL Server, and a complete admin panel for inventory and content management. I automated deployments and CI/CD with Azure DevOps, ensuring speed and reliability in every delivery. Although the site was taken down by the client’s decision, the code remains available in my public repository."
+    "title": "Recent Projects",
+    "subtitle": "Examples of the kind of digital solutions I can build for you",
+    "pokedex": {
+      "title": "🔴 Pokédex — Pokémon Explorer",
+      "desc": "Interactive web app that consumes an external API to display real-time data. Features search, filters, and detailed views. Built with Angular 21 and deployed to production."
+    },
+    "beatbox": {
+      "title": "🐱 Dark Michi Beatbox Studio",
+      "desc": "Interactive beat sequencer in the browser using Web Audio API. Features percussion pads, tempo control, preset patterns, and real-time visualization. Pure JavaScript and HTML/CSS."
+    },
+    "lynx-moneyleaks": {
+      "title": "🦊 LynxMoneyLeaks — Finance Assistant",
+      "desc": "Mobile-first personal finance web app. Tells you how much you can safely spend today after protecting income, expenses, debts, and savings. Actively built with Angular, .NET 10, and PostgreSQL."
     }
   },
   "footer": {
@@ -77,40 +119,48 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "connect": "Connect",
-    "copyright": "© 2024 Gerardo Martínez. Built with",
+    "copyright": "© 2025 Gerardo Martínez. Built with",
     "and_lots_of": "and tons of passion for code"
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Let’s talk about how I can boost your next project",
-    "name": "Your name",
-    "email": "Your email",
-    "message": "Your message",
-    "send": "Send",
-    "sending": "Sending...",
-    "required": "All fields are required",
-    "invalid_email": "Invalid email format",
-    "success": "Your message has been successfully sent!",
-    "error": "Error sending the message.",
-    "server_error": "Could not connect to the server.",
-    "placeholders": {
-      "name": "Your full name",
-      "email": "your.email@example.com",
-      "message": "Tell me your idea, your challenge, or just say hello"
+    "subtitle": "Tell me about your project and get a free quote",
+    "social": {
+      "hit_me_up": "Get a Quote!",
+      "description": "I'm just a message away. Tell me what you need and I'll get back to you with a no-obligation proposal."
     },
     "info": {
       "get_in_touch": {
         "title": "Get in Touch",
-        "description": "Ready to create something great or exchange ideas? I’m just a message away."
+        "description": "Ready to start your project? Request a quote and I'll respond within 24 hours."
       },
       "quick_response": {
         "title": "Quick Response",
-        "description": "On business days I usually reply within 24 hours."
+        "description": "I usually reply within 24 hours on business days. Urgent projects get priority."
       },
       "collaborate": {
-        "title": "Let’s Collaborate",
-        "description": "From one-time consulting to full development, I can help you shape your vision."
+        "title": "Let's Collaborate",
+        "description": "From a single landing page to a complete web application, I'll help you bring your idea to life."
       }
+    },
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent successfully! Thank you for contacting me, I'll get back to you soon.",
+    "thanks": "Thank you for your message!",
+    "send_again": "Send another message",
+    "error": "An error occurred while sending your message. Please try again.",
+    "server_error": "Could not connect to the server. Check your connection and try again.",
+    "required": "All fields are required.",
+    "invalid_email": "Please enter a valid email address.",
+    "turnstile_error": "Security verification failed. Please reload the page and try again.",
+    "turnstile_required": "Please complete the security verification.",
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@email.com",
+      "message": "What kind of project do you have in mind? Share the details and I'll give you a quote..."
     }
   },
   "project_card": {
@@ -122,5 +172,14 @@
     "technologies": "Technologies Used",
     "click_to_view": "Click to view",
     "screenshot": "Project Screenshot"
+  },
+  "journal": {
+    "title": "Dev Journal",
+    "subtitle": "Development log, learnings and feline adventures — updated at the end of each day by Dark Michi 🐱",
+    "back": "Back to home",
+    "loading": "Loading journal entries...",
+    "error": "Could not load the journal",
+    "empty": "No journal entries yet. Check back soon!",
+    "footer": "✦ Dev Journal · Dark Michi 🐱 · Auto-updated daily"
   }
 }

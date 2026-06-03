@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="text-block" class:fade-in={mounted} style="animation-delay: 0.4s">
-                    <p>{$t('about.p3')}</p>
+                    <p>{@html $t('about.p3')}</p>
                 </div>
 
                 <div class="text-block" class:fade-in={mounted} style="animation-delay: 0.6s">
@@ -140,15 +140,6 @@
         line-height: 1.8;
         color: var(--color-text-secondary);
         margin: 0;
-    }
-
-    .text-block span {
-        font-weight: 600;
-        color: var(--color-accent);
-        background: linear-gradient(135deg, var(--color-accent), var(--color-accent-secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
     }
 
     .about-visual {

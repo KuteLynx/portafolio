@@ -1,5 +1,5 @@
 <script>
-    let { title, description, tech = [], repo, demo = null, apiRepo, images = [] } = $props();
+    let { title, description, tech = [], repo, demo = null, apiRepo = null, images = [], status = null } = $props();
     import {t} from 'svelte-i18n';
 
     let modalImg = $state(null);
@@ -18,6 +18,11 @@
 <div class="card project-card card-hover">
     <div class="card-header">
         <h3 class="project-title gradient-text">{title}</h3>
+        {#if status}
+            <span class="status-badge" class:coming-soon={status === 'coming-soon'}>
+                {status === 'coming-soon' ? '🚧 Coming Soon' : status}
+            </span>
+        {/if}
     </div>
 
     <p class="description">{description}</p>
@@ -121,6 +126,27 @@
         justify-content: space-between;
         align-items: flex-start;
         margin-bottom: var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+        background: var(--gradient-primary);
+        color: var(--color-bg);
+        border: 1px solid var(--color-accent);
+    }
+
+    .status-badge.coming-soon {
+        background: var(--color-bg-secondary);
+        color: var(--color-text-secondary);
+        border: 1px solid var(--color-border);
+        animation: pulse 2s ease-in-out infinite;
     }
 
     .project-title {
