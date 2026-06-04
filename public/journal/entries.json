@@ -13,6 +13,20 @@
       },
       "tags": ["meta", "journal", "setup"],
       "author": "Gerardo Martínez"
+    },
+    {
+      "id": 2,
+      "date": "2026-06-03",
+      "title": {
+        "es": "SEO al portafolio, debug circular en Angular y SPs en SQL",
+        "en": "Portfolio SEO, Angular circular debug, and SQL stored procedures"
+      },
+      "content": {
+        "es": "Hoy fue un día de esos donde toqué tres proyectos distintos y cada uno me dejó algo nuevo. Arranqué con el portafolio porque me di cuenta de que cuando compartía el link no salía preview. Resulta que el problema estaba en las variables CSS del TechStack, que usaba una que no existía. Arreglé eso, metí la categoría de IA y Agentes con Python, LangChain, Ollama y LLMs, y sembré keywords de SEO en el About, Home y los servicios. Le metí \"agentes de IA\", \"AI agentic workflows\" y más por todo el sitio. Cuando hice deploy todo ya jalaba bien y el preview aparecía completo.\n\nDespués me fui a LynxMoneyLeaks y me topé con el error NG0919 de Angular en runtime. El fix ya existía en un hotfix anterior pero se perdió cuando se mergeó a master. Era un import barrel en LayoutComponent que apuntaba a BottomNavComponent desde @shared/components, creando un ciclo circular. Lo arreglé cambiando a un import directo. Una línea de cambio, pero me tuvo debuggeando buen rato. La moraleja: los barrel imports en Angular son una trampa silenciosa.\n\nYa tarde en el día le metí mano al favicon del portafolio que no se veía y a tomarle screenshot al dashboard de LynxMoneyLeaks para ponerlo en la sección de proyectos. El dashboard con el modo Guardián quedó bien padre en la tarjeta del proyecto.\n\nY en el trabajo aprendí a modificar stored procedures en SQL para agregar un impuesto nuevo del gobierno de USA a los recibos. El flujo completo: tabla, SP con la lógica, y el reporte RDL en SSRS que consume los datos dinámicamente. Si cambia la tasa del impuesto, solo actualizas el SP y el reporte ni se entera. Eso es arquitectura como debe ser.",
+        "en": "Today was one of those days where I touched three different projects and each one taught me something new. I started with the portfolio because I noticed the link preview wasn't showing up when I shared it. Turns out the issue was in the CSS variables in TechStack, using one that didn't actually exist. Fixed that, added the AI & Agents category with Python, LangChain, Ollama and LLMs, and seeded SEO keywords across the About, Home, and services sections. Sprinkled \"AI agents\", \"AI agentic workflows\" and more throughout the site. When I deployed, everything was working and the full preview showed up.\n\nThen I moved to LynxMoneyLeaks and ran into the Angular NG0919 runtime error. The fix already existed in a previous hotfix but got lost during the merge to master. It was a barrel import in LayoutComponent pointing to BottomNavComponent from @shared/components, creating a circular dependency. Fixed it by switching to a direct import. One line change, but it had me debugging for a good while. Lesson learned: barrel imports in Angular are a silent trap.\n\nLate in the day I tackled the portfolio favicon that wasn't showing up and took a screenshot of the LynxMoneyLeaks dashboard to put in the projects section. The dashboard with Guardian mode looks great on the project card.\n\nAnd at work I learned to modify stored procedures in SQL to add a new US government tax to receipts. Full pipeline: database table, SP with the business logic, and the SSRS RDL report that consumes the data dynamically. If the tax rate changes, you just update the SP and the report never knows. That's architecture done right."
+      },
+      "tags": ["angular", "svelte", "seo", "debugging", "sql", "ssrs", "deploy", "portfolio", "lynxmoneyleaks"],
+      "author": "Gerardo Martínez"
     }
   ]
 }
