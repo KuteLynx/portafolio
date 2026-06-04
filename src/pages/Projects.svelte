@@ -30,10 +30,10 @@
 
         <ProjectCard
             description={$t('projects.lynx-moneyleaks.desc')}
+            images={['/images/lynxmoneyleaks-dashboard.png']}
             repo="https://dev.azure.com/mtzjuncogerardo/LynxMoneyLeaks/_git/LynxMoneyLeaks"
             tech={["Angular", ".NET 10", "PostgreSQL", "Azure DevOps"]}
             title={$t('projects.lynx-moneyleaks.title')}
-            status="coming-soon"
         />
     </div>
 </section>
