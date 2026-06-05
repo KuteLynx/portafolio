@@ -27,6 +27,20 @@
       },
       "tags": ["angular", "svelte", "seo", "debugging", "sql", "ssrs", "deploy", "portfolio", "lynxmoneyleaks"],
       "author": "Gerardo Martínez"
+    },
+    {
+      "id": 3,
+      "date": "2026-06-04",
+      "title": {
+        "es": "Arquitectura de lynx-fact-checker y planes de integración con DeepSeek",
+        "en": "Architecting lynx-fact-checker and DeepSeek integration plans"
+      },
+      "content": {
+        "es": "Hoy fue un día de planear más que de codeo, pero bien productivo. Metí toda la mañana en diseñar la arquitectura de lynx-fact-checker, mi proyecto nuevo de verificación de contenido de TikTok. Va a ser un pipeline backend en FastAPI que recibe un link, extrae metadata con los scripts que ya tenía, pasa todo por el filtro de verificación y decide si se necesita OCR, Whisper o va directo a análisis con IA.\n\nMe gustó cómo quedó la separación: pipeline.py orquesta todo, los scripts de extracción y filtrado viven separados, y el frontend es una SPA en Svelte 5 con Capacitor para mobile. Nada de sobreingeniería, cada pieza hace una cosa y se comunican por datos, no por acoplamiento.\n\nY ya en la tarde planeé la integración con DeepSeek. La idea es que después de que el pipeline extraiga y filtre el contenido, un LLM haga el análisis final de veracidad. DeepSeek tiene API compatible con OpenAI, así que con el SDK de OpenAI y cambiando el base_url ya jala. Lo mejor es que si no hay API key configurada, el sistema falla abierto y solo no incluye el análisis.",
+        "en": "Today was more about planning than coding, but super productive. Spent the morning designing the architecture for lynx-fact-checker, my new TikTok content verification project. It's going to be a FastAPI backend pipeline that takes a link, extracts metadata with the scripts I already had, runs everything through the verification filter, and decides whether OCR, Whisper, or direct AI analysis is needed.\n\nI liked how the separation turned out: pipeline.py orchestrates everything, the extraction and filtering scripts live independently, and the frontend is a Svelte 5 SPA with Capacitor for mobile. No overengineering, each piece does one thing and they communicate through data, not coupling.\n\nIn the afternoon I planned the DeepSeek integration. The idea is that after the pipeline extracts and filters the content, an LLM does the final veracity analysis. DeepSeek has an OpenAI-compatible API, so with the OpenAI SDK and just changing the base_url it works. The best part is that if there's no API key configured, the system fails open and just skips the analysis."
+      },
+      "tags": ["fastapi", "svelte", "python", "deepseek", "architecture", "llm", "android", "lynx-fact-checker"],
+      "author": "Gerardo Martínez"
     }
   ]
 }
