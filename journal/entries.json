@@ -41,6 +41,20 @@
       },
       "tags": ["fastapi", "svelte", "python", "deepseek", "architecture", "llm", "android", "lynx-fact-checker"],
       "author": "Gerardo Martínez"
+    },
+    {
+      "id": 4,
+      "date": "2026-06-05",
+      "title": {
+        "es": "PWA al tiro, DeepSeek ya sin atorarse y Dark Lynx tomando forma",
+        "en": "PWA polished, DeepSeek unstuck, and Dark Lynx taking shape"
+      },
+      "content": {
+        "es": "Hoy me clavé durísimo con lynx-fact-checker y estuvo buenísimo. Primero dejé más aterrizado todo el tema del deploy y la PWA. Ya quedó documentado el hosting en Render, el checklist del despliegue y toda esa parte que siempre parece secundaria hasta que te toca pelearte con ella en serio. Me gusta cuando un proyecto deja de sentirse como experimento y empieza a oler a producto real, con su flujo de publicación, variables y ruta clara para vivir afuera de mi máquina.\n\nLo más sabroso fue cazar un bug bien tramposo en el análisis con IA. El pipeline sí estaba respondiendo, pero el modelo se estaba cortando por `max_tokens=1024` y por eso devolvía respuestas vacías o incompletas. Subí ese límite a 4096, repetí la prueba con un TikTok real y ahora ya regresó claims estructurados como debe ser. De esas veces donde no era un error gigante ni una arquitectura rota, nomás un límite mal puesto que te roba horas hasta que por fin lo ves. Qué alivio cuando cayó.\n\nY para rematar, también dejé armado el plan de la landing de Dark Lynx Protocol en SvelteKit con SCSS, componentes reutilizables y estructura limpia desde el arranque. Me gustó mucho ese contraste entre andar apagando incendios de deploy y luego sentarme a diseñar algo con calma. Día bastante completo.",
+        "en": "Today I went deep on lynx-fact-checker and it felt really good. First I made the deploy and PWA side way more real. I documented the Render hosting setup, the deployment checklist, and all that stuff that always looks secondary until you actually have to wrestle with it. I love that moment when a project stops feeling like an experiment and starts smelling like a real product, with a publishing flow, environment variables, and a clear path to live outside my machine.\n\nThe best part was catching a sneaky bug in the AI analysis. The pipeline was technically responding, but the model was getting cut off by `max_tokens=1024`, so it kept returning empty or incomplete output. I bumped it to 4096, reran the test with a real TikTok, and now it returns structured claims the way it should. One of those fixes where the system is not broken in some huge dramatic way, it is just one badly placed limit stealing hours from you until you finally spot it. Felt amazing when it clicked.\n\nTo top it off, I also mapped out the Dark Lynx Protocol landing page in SvelteKit with SCSS, reusable components, and a clean structure from day one. I liked that contrast a lot: fighting deploy fires for one project and then switching into calm architecture mode for another. Pretty solid day."
+      },
+      "tags": ["pwa", "deploy", "debugging", "llm", "python", "svelte", "scss", "architecture", "lynx-fact-checker", "dark-lynx-protocol"],
+      "author": "Gerardo Martínez"
     }
   ]
 }
