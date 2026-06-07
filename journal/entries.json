@@ -55,6 +55,20 @@
       },
       "tags": ["pwa", "deploy", "debugging", "llm", "python", "svelte", "scss", "architecture", "lynx-fact-checker", "dark-lynx-protocol"],
       "author": "Gerardo Martínez"
+    },
+    {
+      "id": 5,
+      "date": "2026-06-06",
+      "title": {
+        "es": "Cron del journal arreglado y infra de emails del portafolio",
+        "en": "Journal cron fixed and portfolio email infra"
+      },
+      "content": {
+        "es": "Hoy no fue un día de codear, sino de poner a funcionar las cosas que ya existen. Me di cuenta de que el cron del diario técnico llevaba sin jalar un buen rato. Fui a revisar la config y ahí estaba el problema: el cron estaba usando el provider de OpenAI Codex con un modelo que no pegaba con el setup. Lo cambié a `opencode-go` con `qwen3.6-plus`, que es el mismo stack que uso para todo lo demás. Ya quedó lanzado de nuevo y verificando que el siguiente run corra sin broncas.\n\nDespués alguien me preguntó por el servicio de correo del portafolio y tuve que rastrear mentalmente todo el flujo. Originalmente usábamos SendGrid, pero en algún punto migramos a Resend. La cadena completa quedó así: el formulario en Svelte 5 le pega al Cloudflare Worker, el Worker valida el Turnstile y manda el mail por la API de Resend. Simple y sin complicaciones. Me gusta cuando algo funciona y uno solo necesita recordar cómo lo armó.",
+        "en": "Today wasn't about coding, it was about getting existing things actually working. I noticed the technical journal cron had been failing for a while. Went to check the config and there it was: the cron was using the OpenAI Codex provider with a model that didn't fit the setup. Switched it to `opencode-go` with `qwen3.6-plus`, which is the same stack I use for everything else. Relaunched it and the next run should go through clean.\n\nLater someone asked about the portfolio's email service and I had to mentally trace the whole flow. We originally used SendGrid, but at some point migrated to Resend. The full chain is: the Svelte 5 form hits the Cloudflare Worker, the Worker validates the Turnstile captcha, and sends the mail through Resend's API. Simple and straightforward. I like when something just works and you only need to remember how you set it up."
+      },
+      "tags": ["cron", "hermes", "devops", "cloudflare", "resend", "svelte", "infrastructure"],
+      "author": "Gerardo Martínez"
     }
   ]
 }
